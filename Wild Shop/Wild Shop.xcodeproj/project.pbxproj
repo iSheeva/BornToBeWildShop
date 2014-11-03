@@ -25,6 +25,11 @@
 		5DB9CC7E1A0124B70042A069 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB9CC7D1A0124B70042A069 /* Security.framework */; };
 		5DB9CC801A0124C40042A069 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB9CC7F1A0124C40042A069 /* StoreKit.framework */; };
 		5DB9CC821A0124D20042A069 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DB9CC811A0124D20042A069 /* SystemConfiguration.framework */; };
+		8441A11A1A07B45700DF6925 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441A1191A07B45700DF6925 /* LoginViewController.m */; };
+		8441A11D1A07B48B00DF6925 /* CatalogueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441A11C1A07B48B00DF6925 /* CatalogueViewController.m */; };
+		8441A1201A07B4B300DF6925 /* MyAddsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441A11F1A07B4B300DF6925 /* MyAddsTableViewController.m */; };
+		8441A1231A07B4C500DF6925 /* RecentAddsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441A1221A07B4C500DF6925 /* RecentAddsTableViewController.m */; };
+		8441A1261A07B50B00DF6925 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441A1251A07B50B00DF6925 /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +66,16 @@
 		5DB9CC7D1A0124B70042A069 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5DB9CC7F1A0124C40042A069 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5DB9CC811A0124D20042A069 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8441A1181A07B45700DF6925 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		8441A1191A07B45700DF6925 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		8441A11B1A07B48B00DF6925 /* CatalogueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogueViewController.h; sourceTree = "<group>"; };
+		8441A11C1A07B48B00DF6925 /* CatalogueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatalogueViewController.m; sourceTree = "<group>"; };
+		8441A11E1A07B4B300DF6925 /* MyAddsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAddsTableViewController.h; sourceTree = "<group>"; };
+		8441A11F1A07B4B300DF6925 /* MyAddsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAddsTableViewController.m; sourceTree = "<group>"; };
+		8441A1211A07B4C500DF6925 /* RecentAddsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentAddsTableViewController.h; sourceTree = "<group>"; };
+		8441A1221A07B4C500DF6925 /* RecentAddsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentAddsTableViewController.m; sourceTree = "<group>"; };
+		8441A1241A07B50B00DF6925 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		8441A1251A07B50B00DF6925 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +130,7 @@
 		5DB9CC3E1A011AD60042A069 /* Wild Shop */ = {
 			isa = PBXGroup;
 			children = (
+				8441A1171A07B43B00DF6925 /* Controllers */,
 				5DB9CC431A011AD60042A069 /* AppDelegate.h */,
 				5DB9CC441A011AD60042A069 /* AppDelegate.m */,
 				5DB9CC491A011AD60042A069 /* Main.storyboard */,
@@ -168,6 +184,23 @@
 				5DB9CC6C1A0123970042A069 /* Parse.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8441A1171A07B43B00DF6925 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8441A1181A07B45700DF6925 /* LoginViewController.h */,
+				8441A1191A07B45700DF6925 /* LoginViewController.m */,
+				8441A11B1A07B48B00DF6925 /* CatalogueViewController.h */,
+				8441A11C1A07B48B00DF6925 /* CatalogueViewController.m */,
+				8441A11E1A07B4B300DF6925 /* MyAddsTableViewController.h */,
+				8441A11F1A07B4B300DF6925 /* MyAddsTableViewController.m */,
+				8441A1211A07B4C500DF6925 /* RecentAddsTableViewController.h */,
+				8441A1221A07B4C500DF6925 /* RecentAddsTableViewController.m */,
+				8441A1241A07B50B00DF6925 /* DetailsViewController.h */,
+				8441A1251A07B50B00DF6925 /* DetailsViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,8 +303,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8441A11D1A07B48B00DF6925 /* CatalogueViewController.m in Sources */,
 				5DB9CC451A011AD60042A069 /* AppDelegate.m in Sources */,
 				5DB9CC421A011AD60042A069 /* main.m in Sources */,
+				8441A1201A07B4B300DF6925 /* MyAddsTableViewController.m in Sources */,
+				8441A1261A07B50B00DF6925 /* DetailsViewController.m in Sources */,
+				8441A1231A07B4C500DF6925 /* RecentAddsTableViewController.m in Sources */,
+				8441A11A1A07B45700DF6925 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
