@@ -121,6 +121,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJi-Kz-KYt" id="An9-HJ-VXs">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="jL8-Ci-h0c" kind="show" id="iFw-vp-YPP"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="widthClass=compact" fixedFrame="YES">
@@ -294,7 +297,7 @@
         <image name="biker" width="600" height="428"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bNE-dE-MNZ"/>
+        <segue reference="iFw-vp-YPP"/>
         <segue reference="Plj-ZQ-oHg"/>
     </inferredMetricsTieBreakers>
 </document>
