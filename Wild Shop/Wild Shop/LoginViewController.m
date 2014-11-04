@@ -71,4 +71,12 @@
 }
 */
 
+// SET LOGOUT BUTTON DESTINATION
+-(IBAction)goToThisView:(UIStoryboardSegue *) segue{
+    //id source = [segue sourceViewController];
+    //id destination = [segue destinationViewController];
+    [[[UIAlertView alloc] initWithTitle:@"You are out" message:@"You Logged Out! Please Come Back Soon!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
+
+
 @end

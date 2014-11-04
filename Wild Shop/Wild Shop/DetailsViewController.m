@@ -20,6 +20,9 @@
     self.itemDescription.text = self.currentEntry.entryDetail;
     self.itemContacts.text = self.currentEntry.entryContacts;
     self.itemAuthor.text = self.currentEntry.entryAuthor;
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd/MM/yyyy hh:mm"];
+    self.itemCreationDate.text = [formatter stringFromDate:self.currentEntry.entryDate];
     [self.itemAvatar setImage:[UIImage imageNamed:self.currentEntry.entryAvatar]];
     // Do any additional setup after loading the view.
 }
@@ -27,6 +30,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)goBackToCatalogues:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

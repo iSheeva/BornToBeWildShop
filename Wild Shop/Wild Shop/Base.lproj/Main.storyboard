@@ -228,6 +228,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="quW-va-Ame" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1057.5" y="137"/>
         </scene>
@@ -387,6 +388,9 @@
                     <navigationItem key="navigationItem" title="Catalogue" id="RGR-TM-Uen">
                         <barButtonItem key="leftBarButtonItem" title="Sign Out" id="Kqj-zS-vhz">
                             <color key="tintColor" red="0.16929296341725675" green="1" blue="0.096163711656386597" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="quW-va-Ame" kind="unwind" unwindAction="goToThisView:" id="H44-9b-yww"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="TNc-Ai-8x9">
                             <color key="tintColor" red="0.16086496807883399" green="1" blue="0.0047136972289972823" alpha="1" colorSpace="calibratedRGB"/>
@@ -404,7 +408,7 @@
         <scene sceneID="8x8-d5-MQY">
             <objects>
                 <tabBarController id="6xj-C6-Ysv" sceneMemberID="viewController">
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="acQ-Vw-Xvo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -595,12 +599,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUf-tk-I7J">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hq6-1s-MeU">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.010953209109153428" green="0.17357712158056626" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -622,7 +620,16 @@
                                         <include reference="Ajc-Lx-TvC"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="goBackToCatalogues:" destination="jL8-Ci-h0c" eventType="touchUpInside" id="aIA-el-mfc"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUf-tk-I7J">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.26386001795941993" green="1" blue="0.97714853745173247" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -667,8 +674,8 @@
                                 <exclude reference="Wfs-xY-viK"/>
                                 <exclude reference="nBC-aj-wI2"/>
                                 <exclude reference="FvQ-NP-dye"/>
-                                <exclude reference="HUf-tk-I7J"/>
                                 <exclude reference="Hq6-1s-MeU"/>
+                                <exclude reference="HUf-tk-I7J"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="S3I-oi-c4N"/>
@@ -713,8 +720,8 @@
                                 <include reference="Wfs-xY-viK"/>
                                 <include reference="nBC-aj-wI2"/>
                                 <include reference="FvQ-NP-dye"/>
-                                <include reference="HUf-tk-I7J"/>
                                 <include reference="Hq6-1s-MeU"/>
+                                <include reference="HUf-tk-I7J"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="S3I-oi-c4N"/>
@@ -755,6 +762,7 @@
                         <outlet property="itemAuthor" destination="FvQ-NP-dye" id="pjE-9h-w2t"/>
                         <outlet property="itemAvatar" destination="8ds-Fr-TL9" id="RSW-28-rHL"/>
                         <outlet property="itemContacts" destination="Ygz-OK-cO6" id="lIK-jm-W0A"/>
+                        <outlet property="itemCreationDate" destination="HUf-tk-I7J" id="mfa-qo-6Cf"/>
                         <outlet property="itemDescription" destination="3vz-kB-Dz2" id="pP1-gF-dT4"/>
                         <outlet property="itemTitle" destination="4EU-bb-aGk" id="gze-S8-2Ep"/>
                     </connections>
