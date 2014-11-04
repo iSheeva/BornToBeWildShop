@@ -16,6 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.itemTitle.text = self.currentEntry.entryTitle;
+    self.itemDescription.text = self.currentEntry.entryDetail;
+    self.itemContacts.text = self.currentEntry.entryContacts;
+    self.itemAuthor.text = self.currentEntry.entryAuthor;
+    [self.itemAvatar setImage:[UIImage imageNamed:self.currentEntry.entryAvatar]];
     // Do any additional setup after loading the view.
 }
 

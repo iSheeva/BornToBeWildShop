@@ -7,6 +7,7 @@
 //
 
 #import "CatalogueViewController.h"
+#import "DetailsViewController.h"
 #import <Parse/Parse.h>
 #import "AddEntry.h"
 
@@ -21,6 +22,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     NSLog(@"catalogue will appear");
+    // REFRESH DATA TO DISPLAY IF NEW ENTRIES ARE ADDED
+    self.items = [AddEntry getAllEntries];
+    self.data = [NSArray arrayWithArray:self.items];
 }
 
 - (void)viewDidLoad {
@@ -121,14 +125,21 @@
     //id destination = [segue destinationViewController];
     [[[UIAlertView alloc] initWithTitle:@"You are back" message:@"Welcome" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
+    NSIndexPath *path = [self.customTableView indexPathForSelectedRow];
+    long row = [path row];
+    if ([segue.identifier isEqualToString:@"catalogueToDetailSegue"]) {
+        DetailsViewController *dvc = [segue destinationViewController];
+        AddEntry *selectedEntry = self.data[row];
+        dvc.currentEntry = selectedEntry;
+    }
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end
