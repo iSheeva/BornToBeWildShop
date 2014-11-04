@@ -7,16 +7,34 @@
 //
 
 #import "MyAddsTableViewController.h"
+#import "EntryManager.h"
+#import "DetailsViewController.h"
 
 @interface MyAddsTableViewController ()
+
+@property EntryManager *manager;
+@property NSArray * items;
 
 @end
 
 @implementation MyAddsTableViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    self.items = [self.manager getAllEntries];
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.manager = [EntryManager getManager];
+    self.items = [self.manager getAllEntries];
+    
+    //[self.tableView setDataSource:self];
+    // Do any additional setup after loading the view, typically from a nib.
+    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -31,25 +49,29 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 0;
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 0;
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.items count];
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    long row = indexPath.row;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myAddCell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"myAddCell"];
+    }
+    AddEntry *currentEntry = self.items[row];
     
-    // Configure the cell...
+    cell.textLabel.text = currentEntry.entryTitle;
+    cell.detailTextLabel.text = currentEntry.entryDetail;
+    UIImage *currentImage = [UIImage imageNamed:currentEntry.entryAvatar];
+    [cell.imageView setImage:currentImage];
+    return  cell;
     
-    return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -85,14 +107,18 @@
 }
 */
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    long row = [path row];
+    if ([segue.identifier isEqualToString:@"myAddsToDetailSegue"]) {
+        DetailsViewController *dvc = [segue destinationViewController];
+        AddEntry *selectedEntry = self.items[row];
+        dvc.currentEntry = selectedEntry;
+    }
     // Pass the selected object to the new view controller.
 }
-*/
 
 @end
