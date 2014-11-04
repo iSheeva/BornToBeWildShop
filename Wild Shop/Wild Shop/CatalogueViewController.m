@@ -8,13 +8,14 @@
 
 #import "CatalogueViewController.h"
 #import "DetailsViewController.h"
+#import "EntryManager.h"
 #import <Parse/Parse.h>
 #import "AddEntry.h"
 
 @interface CatalogueViewController ()
 @property NSArray * categories;
+@property EntryManager *manager;
 @property NSArray * items;
-@property NSArray * data;
 @end
 
 @implementation CatalogueViewController
@@ -23,19 +24,17 @@
     [super viewWillAppear:YES];
     NSLog(@"catalogue will appear");
     // REFRESH DATA TO DISPLAY IF NEW ENTRIES ARE ADDED
-    self.items = [AddEntry getAllEntries];
-    self.data = [NSArray arrayWithArray:self.items];
+    self.items = [self.manager getAllEntries];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [AddEntry createEntries];
+    self.manager = [EntryManager getManager];
     
     [self.customTableView setDataSource:self];
     // Do any additional setup after loading the view, typically from a nib.
     self.categories = @[@"none", @"vehicles", @"parts", @"accessories"];
-    self.items = [AddEntry getAllEntries];
-    self.data = [NSArray arrayWithArray:self.items];
+    self.items = [self.manager getAllEntries];
     
     NSLog(@"in catalogue");
     NSLog(@"%@", [PFUser currentUser]);
@@ -68,23 +67,23 @@
     switch (row) {
         case 1: {
             background = [UIColor greenColor];
-            self.data = [AddEntry getEntriesFrom:self.items ByCategory:1];
+            self.items = [self.manager getEntriesByCategory:1];
             [self.customTableView reloadData];
             break;
         }
         case 2:
             background = [UIColor yellowColor];
-            self.data = [AddEntry getEntriesFrom:self.items ByCategory:2];
+            self.items = [self.manager getEntriesByCategory:2];
             [self.customTableView reloadData];
             break;
         case 3:
             background = [UIColor redColor];
-            self.data = [AddEntry getEntriesFrom:self.items ByCategory:3];
+            self.items = [self.manager getEntriesByCategory:3];
             [self.customTableView reloadData];
             break;
         default:
             background = [UIColor whiteColor];
-            self.data = [self.items copy];
+            self.items = [self.manager getAllEntries];
             [self.customTableView reloadData];
             break;
     }
@@ -101,7 +100,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"catalogueCell"];
     }
-    AddEntry *currentEntry = self.data[row];
+    AddEntry *currentEntry = self.items[row];
     
     cell.textLabel.text = currentEntry.entryTitle;
     cell.detailTextLabel.text = currentEntry.entryDetail;
@@ -116,7 +115,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.data count];
+    return [self.items count];
 }
 
 // SET BACK BUTTON DESTINATION
@@ -135,7 +134,7 @@
     long row = [path row];
     if ([segue.identifier isEqualToString:@"catalogueToDetailSegue"]) {
         DetailsViewController *dvc = [segue destinationViewController];
-        AddEntry *selectedEntry = self.data[row];
+        AddEntry *selectedEntry = self.items[row];
         dvc.currentEntry = selectedEntry;
     }
     // Pass the selected object to the new view controller.

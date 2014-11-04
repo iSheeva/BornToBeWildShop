@@ -32,7 +32,6 @@ enum category {
                   withAuthor: (NSString *)author
                   withAvatar: (NSString *)avatar
                 withCategory: (int) category;
-- (NSComparisonResult)compare: (AddEntry *)otherObject;
 
 +(instancetype) addEntry;
 +(instancetype) addEntryWithTitle: (NSString *)title
@@ -41,18 +40,6 @@ enum category {
                        withAuthor: (NSString *)author
                        withAvatar: (NSString *)avatar
                      withCategory: (int) category;
-+(NSArray *) createEntries;
-+(AddEntry *) getEntryAtIndex: (int)index;
-+(NSArray *) getAllEntries;
-+(NSArray *) getEntriesFrom: (NSArray *)entries
-                 ByCategory: (int)category;
-+(NSArray *) getEntriesFrom: (NSArray *)entries
-                   ByAuthor: (NSString *) author;
-+(NSArray *) getRecentEntriesWithCount: (int)count;
-+(void) addNewEntry: (AddEntry *)entry;
-+(void) addNewEntry: (AddEntry *)entry
-            atIndex: (int)index;
-+(void) removeEntry: (AddEntry *)entry;
-+(void) removeEntryAtIndex: (int)index;
 
+- (NSComparisonResult)compare: (AddEntry *)otherObject;
 @end
