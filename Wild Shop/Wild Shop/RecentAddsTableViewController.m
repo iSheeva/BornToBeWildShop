@@ -21,7 +21,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    self.items = [self.manager getAllEntries];
+    self.items = [self.manager getRecentEntriesWithCount:15];
     [self.tableView reloadData];
 }
 
@@ -29,7 +29,7 @@
     [super viewDidLoad];
     
     self.manager = [EntryManager getManager];
-    self.items = [self.manager getAllEntries];
+    self.items = [self.manager getRecentEntriesWithCount:15];
     
     //[self.tableView setDataSource:self];
     // Uncomment the following line to preserve selection between presentations.

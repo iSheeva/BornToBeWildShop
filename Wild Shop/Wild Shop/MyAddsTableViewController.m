@@ -21,7 +21,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    self.items = [self.manager getAllEntries];
+    self.items = [self.manager getEntriesByAuthor:@"radi"];
     [self.tableView reloadData];
 }
 
@@ -29,7 +29,7 @@
     [super viewDidLoad];
     
     self.manager = [EntryManager getManager];
-    self.items = [self.manager getAllEntries];
+    self.items = [self.manager getEntriesByAuthor:@"radi"];
     
     //[self.tableView setDataSource:self];
     // Do any additional setup after loading the view, typically from a nib.
