@@ -31,7 +31,7 @@
 		8441A1201A07B4B300DF6925 /* MyAddsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441A11F1A07B4B300DF6925 /* MyAddsTableViewController.m */; };
 		8441A1231A07B4C500DF6925 /* RecentAddsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441A1221A07B4C500DF6925 /* RecentAddsTableViewController.m */; };
 		8441A1261A07B50B00DF6925 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441A1251A07B50B00DF6925 /* DetailsViewController.m */; };
-		8441A12A1A07BCE000DF6925 /* AddEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441A1291A07BCE000DF6925 /* AddEntry.m */; };
+		84CD15E51A09338C001BC228 /* AddEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CD15E41A09338C001BC228 /* AddEntry.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,8 +80,8 @@
 		8441A1221A07B4C500DF6925 /* RecentAddsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentAddsTableViewController.m; sourceTree = "<group>"; };
 		8441A1241A07B50B00DF6925 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		8441A1251A07B50B00DF6925 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
-		8441A1281A07BCDF00DF6925 /* AddEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEntry.h; sourceTree = "<group>"; };
-		8441A1291A07BCE000DF6925 /* AddEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEntry.m; sourceTree = "<group>"; };
+		84CD15E31A09338C001BC228 /* AddEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddEntry.h; sourceTree = "<group>"; };
+		84CD15E41A09338C001BC228 /* AddEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddEntry.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,8 +213,8 @@
 		8441A1271A07BC7400DF6925 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8441A1281A07BCDF00DF6925 /* AddEntry.h */,
-				8441A1291A07BCE000DF6925 /* AddEntry.m */,
+				84CD15E31A09338C001BC228 /* AddEntry.h */,
+				84CD15E41A09338C001BC228 /* AddEntry.m */,
 				5DDDDEA31A08E27A00F0B24F /* Item.h */,
 				5DDDDEA41A08E27A00F0B24F /* Item.m */,
 			);
@@ -322,7 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DDDDEA51A08E27A00F0B24F /* Item.m in Sources */,
-				8441A12A1A07BCE000DF6925 /* AddEntry.m in Sources */,
+				84CD15E51A09338C001BC228 /* AddEntry.m in Sources */,
 				8441A11D1A07B48B00DF6925 /* CatalogueViewController.m in Sources */,
 				5DB9CC451A011AD60042A069 /* AppDelegate.m in Sources */,
 				5DB9CC421A011AD60042A069 /* main.m in Sources */,

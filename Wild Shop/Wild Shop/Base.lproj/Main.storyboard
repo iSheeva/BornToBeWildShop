@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fHD-WI-zaq">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -168,9 +169,6 @@
                                 <exclude reference="3bL-KX-SYh"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="Aay-tP-81H"/>
-                                <exclude reference="Kwm-7F-rSZ"/>
-                                <exclude reference="NuE-eA-9Ps"/>
                                 <exclude reference="7Zt-2E-Oox"/>
                                 <exclude reference="DaJ-EC-ENR"/>
                                 <exclude reference="HO4-Wl-Cfg"/>
@@ -179,14 +177,17 @@
                                 <exclude reference="Lvc-Tt-Utz"/>
                                 <exclude reference="M1O-57-5U1"/>
                                 <exclude reference="opC-w3-gOv"/>
-                                <exclude reference="ALP-d5-Sh9"/>
-                                <exclude reference="K9l-yz-0gj"/>
-                                <exclude reference="M7h-y7-gce"/>
-                                <exclude reference="Zdc-Av-rtx"/>
                                 <exclude reference="3Kr-f8-flL"/>
                                 <exclude reference="RaF-Lu-SzT"/>
                                 <exclude reference="VKa-AR-lPK"/>
                                 <exclude reference="xTM-2M-mh1"/>
+                                <exclude reference="ALP-d5-Sh9"/>
+                                <exclude reference="K9l-yz-0gj"/>
+                                <exclude reference="M7h-y7-gce"/>
+                                <exclude reference="Zdc-Av-rtx"/>
+                                <exclude reference="Aay-tP-81H"/>
+                                <exclude reference="Kwm-7F-rSZ"/>
+                                <exclude reference="NuE-eA-9Ps"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -198,9 +199,6 @@
                                 <include reference="3bL-KX-SYh"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="Aay-tP-81H"/>
-                                <include reference="Kwm-7F-rSZ"/>
-                                <include reference="NuE-eA-9Ps"/>
                                 <include reference="7Zt-2E-Oox"/>
                                 <include reference="DaJ-EC-ENR"/>
                                 <include reference="HO4-Wl-Cfg"/>
@@ -209,14 +207,17 @@
                                 <include reference="Lvc-Tt-Utz"/>
                                 <include reference="M1O-57-5U1"/>
                                 <include reference="opC-w3-gOv"/>
-                                <include reference="ALP-d5-Sh9"/>
-                                <include reference="K9l-yz-0gj"/>
-                                <include reference="M7h-y7-gce"/>
-                                <include reference="Zdc-Av-rtx"/>
                                 <include reference="3Kr-f8-flL"/>
                                 <include reference="RaF-Lu-SzT"/>
                                 <include reference="VKa-AR-lPK"/>
                                 <include reference="xTM-2M-mh1"/>
+                                <include reference="ALP-d5-Sh9"/>
+                                <include reference="K9l-yz-0gj"/>
+                                <include reference="M7h-y7-gce"/>
+                                <include reference="Zdc-Av-rtx"/>
+                                <include reference="Aay-tP-81H"/>
+                                <include reference="Kwm-7F-rSZ"/>
+                                <include reference="NuE-eA-9Ps"/>
                             </mask>
                         </variation>
                     </view>
@@ -250,12 +251,35 @@
                                     <constraint firstAttribute="width" constant="368" id="rPy-Wd-Fla"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="35O-6e-Eci">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="catalogueCell" textLabel="dte-SG-urd" detailTextLabel="IJu-tf-9mC" style="IBUITableViewCellStyleSubtitle" id="35O-6e-Eci">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="35O-6e-Eci" id="4Zp-TC-zml">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dte-SG-urd">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IJu-tf-9mC">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="jL8-Ci-h0c" kind="show" id="1S1-oW-Zmb"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="default">
@@ -289,6 +313,10 @@
                                         <include reference="tTx-c3-YS5"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="pg2-jH-k2c" id="p28-vH-YbR"/>
+                                    <outlet property="delegate" destination="pg2-jH-k2c" id="gK6-jD-vfB"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -315,6 +343,8 @@
                                 <exclude reference="ppn-hW-Bwx"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="C40-Sc-zqH"/>
+                                <exclude reference="hSU-dc-8TW"/>
                                 <exclude reference="8Js-gV-2yg"/>
                                 <exclude reference="CN3-Pc-9OH"/>
                                 <exclude reference="Edw-5L-Y4R"/>
@@ -328,8 +358,6 @@
                                 <exclude reference="Wqe-gy-3C3"/>
                                 <exclude reference="Y44-1c-v8y"/>
                                 <exclude reference="mHh-ay-49E"/>
-                                <exclude reference="C40-Sc-zqH"/>
-                                <exclude reference="hSU-dc-8TW"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -338,6 +366,8 @@
                                 <include reference="ppn-hW-Bwx"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="C40-Sc-zqH"/>
+                                <include reference="hSU-dc-8TW"/>
                                 <include reference="8Js-gV-2yg"/>
                                 <include reference="CN3-Pc-9OH"/>
                                 <include reference="Edw-5L-Y4R"/>
@@ -351,8 +381,6 @@
                                 <include reference="Wqe-gy-3C3"/>
                                 <include reference="Y44-1c-v8y"/>
                                 <include reference="mHh-ay-49E"/>
-                                <include reference="C40-Sc-zqH"/>
-                                <include reference="hSU-dc-8TW"/>
                             </mask>
                         </variation>
                     </view>
@@ -360,6 +388,9 @@
                     <navigationItem key="navigationItem" title="Catalogue" id="RGR-TM-Uen">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="TNc-Ai-8x9"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="customTableView" destination="dTf-JI-La6" id="WbF-ue-paO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Qx-SK-SMW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -512,6 +543,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="3uq-qX-v0S"/>
-        <segue reference="bNE-dE-MNZ"/>
+        <segue reference="1S1-oW-Zmb"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CatalogueViewController : UIViewController
+@interface CatalogueViewController : UIViewController <UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *customTableView;
 
 @end
+	
