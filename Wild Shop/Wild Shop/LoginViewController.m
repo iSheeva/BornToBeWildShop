@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "Item.h"
 
 @interface LoginViewController ()
 
@@ -17,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    Item *item = [[Item alloc] init];
+    
+    item.title = @"test item";
+    item.detail = @"test detail";
+    
+    [item saveInBackground];
 }
 
 - (void)didReceiveMemoryWarning {
