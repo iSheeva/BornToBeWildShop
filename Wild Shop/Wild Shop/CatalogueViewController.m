@@ -7,6 +7,7 @@
 //
 
 #import "CatalogueViewController.h"
+#import <Parse/Parse.h>
 
 @interface CatalogueViewController ()
 
@@ -16,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSLog(@"in catalogue");
+    NSLog(@"%@", [PFUser currentUser]);
     // Do any additional setup after loading the view.
 }
 

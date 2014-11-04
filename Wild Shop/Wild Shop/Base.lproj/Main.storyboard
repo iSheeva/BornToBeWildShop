@@ -36,21 +36,8 @@
                                     <rect key="frame" x="16" y="324" width="368" height="40"/>
                                 </variation>
                                 <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Jf-pN-QV3"/>
                                     <segue destination="6xj-C6-Ysv" kind="show" identifier="enterToShopWithLogin" id="Plj-ZQ-oHg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bL-KX-SYh">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.2248778179" green="1" blue="0.1143347539" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="372" width="368" height="40"/>
-                                </variation>
-                                <connections>
-                                    <segue destination="6xj-C6-Ysv" kind="show" identifier="enterToShopWithRegister" id="3uq-qX-v0S"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="biker" translatesAutoresizingMaskIntoConstraints="NO" id="3Qo-DG-34W">
@@ -68,28 +55,47 @@
                                     <rect key="frame" x="16" y="248" width="368" height="30"/>
                                 </variation>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3bL-KX-SYh">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.2248778179" green="1" blue="0.1143347539" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="372" width="368" height="40"/>
+                                </variation>
+                                <connections>
+                                    <action selector="register:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cam-Fs-K2N"/>
+                                    <segue destination="6xj-C6-Ysv" kind="show" identifier="enterToShopWithRegister" id="3uq-qX-v0S"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.13239602404703321" blue="0.79598802075728159" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="Yod-q9-OQd"/>
                                 <exclude reference="aej-yP-3SJ"/>
-                                <exclude reference="3bL-KX-SYh"/>
                                 <exclude reference="3Qo-DG-34W"/>
                                 <exclude reference="SAg-So-Lxw"/>
+                                <exclude reference="3bL-KX-SYh"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="Yod-q9-OQd"/>
                                 <include reference="aej-yP-3SJ"/>
-                                <include reference="3bL-KX-SYh"/>
                                 <include reference="3Qo-DG-34W"/>
                                 <include reference="SAg-So-Lxw"/>
+                                <include reference="3bL-KX-SYh"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="FSo-6h-gve"/>
+                    <connections>
+                        <outlet property="password" destination="Yod-q9-OQd" id="9ao-Jm-js4"/>
+                        <outlet property="username" destination="SAg-So-Lxw" id="BDP-AY-ea8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -107,12 +113,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppn-hW-Bwx">
-                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="72" width="368" height="162"/>
-                                </variation>
-                            </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bo1-Uz-i7P">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -131,18 +131,24 @@
                                     <rect key="frame" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 </variation>
                             </tableView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppn-hW-Bwx">
+                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="16" y="72" width="368" height="162"/>
+                                </variation>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="ppn-hW-Bwx"/>
                                 <exclude reference="bo1-Uz-i7P"/>
+                                <exclude reference="ppn-hW-Bwx"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="ppn-hW-Bwx"/>
                                 <include reference="bo1-Uz-i7P"/>
+                                <include reference="ppn-hW-Bwx"/>
                             </mask>
                         </variation>
                     </view>
@@ -302,6 +308,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iFw-vp-YPP"/>
-        <segue reference="Plj-ZQ-oHg"/>
+        <segue reference="3uq-qX-v0S"/>
     </inferredMetricsTieBreakers>
 </document>

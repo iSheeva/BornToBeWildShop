@@ -11,20 +11,49 @@
 
 @interface LoginViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *username;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+
 @end
 
 @implementation LoginViewController
 
+- (IBAction)login:(id)sender {
+    PFUser *user = [PFUser user];
+    user.username = self.username.text;
+    user.password = self.password.text;
+    
+    [PFUser logInWithUsernameInBackground:user.username
+                                 password:user.password
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            NSLog(@"logged in");
+                                        } else {
+                                            NSString *errorString = [error userInfo][@"error"];
+                                            [[[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                                        }
+                                    }];
+}
+
+- (IBAction)register:(id)sender {
+    PFUser *user = [PFUser user];
+    user.username = self.username.text;
+    user.password = self.password.text;
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            NSLog(@"registered");
+            [self login:nil];
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            [[[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        }
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    Item *item = [[Item alloc] init];
-    
-    item.title = @"test item";
-    item.detail = @"test detail";
-    
-    [item saveInBackground];
 }
 
 - (void)didReceiveMemoryWarning {
