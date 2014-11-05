@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 enum category {
-    none,
+    all,
     motorcycles,
     parts,
     accessories

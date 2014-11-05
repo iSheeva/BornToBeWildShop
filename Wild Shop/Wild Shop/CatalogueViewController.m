@@ -34,7 +34,7 @@
     
     [self.customTableView setDataSource:self];
     // Do any additional setup after loading the view, typically from a nib.
-    self.categories = @[@"none", @"vehicles", @"parts", @"accessories"];
+    self.categories = @[@"all", @"vehicles", @"parts", @"accessories"];
     self.items = [self.manager getAllEntries];
     
     NSLog(@"in catalogue");
