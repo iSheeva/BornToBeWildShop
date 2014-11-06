@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Parse/Parse.h>
+#import "Item.h"
 
 @interface AppManager : NSObject
 
@@ -17,5 +18,7 @@
 + (id) getManager;
 -(NSArray *) getEntriesByCategory: (int)category;
 -(NSArray *) getAllEntries;
+-(NSArray *) getEntriesByAuthor: (NSString *) author;
+-(void) removeEntry: (Item *)entry;
 
 @end

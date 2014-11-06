@@ -43,5 +43,22 @@ static AppManager *sharedMyManager = nil;
     return self.itemsData;
 }
 
+-(NSArray *) getEntriesByAuthor: (NSString *) author {
+    NSMutableArray *filteredEntries = [[NSMutableArray alloc] init];
+    for (Item* item in self.itemsData) {
+        NSLog(@"item authorId = %@, input authorId = %@", item.author, author);
+        
+        if ([item.author.objectId isEqualToString: author]) {
+            [filteredEntries addObject:item];
+        }
+    }
+    
+    return  filteredEntries;
+}
+
+-(void) removeEntry: (Item *)entry {
+    [entry deleteInBackground];
+    [self.itemsData removeObject:entry];
+}
 
 @end

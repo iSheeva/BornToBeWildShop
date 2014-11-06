@@ -9,10 +9,15 @@
 #import "MyAddsTableViewController.h"
 #import "EntryManager.h"
 #import "DetailsViewController.h"
+#import "AppManager.h"
+#import "Item.h"
 
 @interface MyAddsTableViewController ()
 
-@property EntryManager *manager;
+//RADI mock data
+//@property EntryManager *manager;
+
+@property AppManager *manager;
 @property NSArray * items;
 
 @end
@@ -21,15 +26,21 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
-    self.items = [self.manager getEntriesByAuthor:@"radi"];
+    //RADI mock data
+//    self.items = [self.manager getEntriesByAuthor:@"radi"];
+    
+    self.items = [self.manager getEntriesByAuthor: self.manager.loggedUser.objectId];
     [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //RADI mock data
+//    self.manager = [EntryManager getManager];
+//    self.items = [self.manager getEntriesByAuthor:@"radi"];
     
-    self.manager = [EntryManager getManager];
-    self.items = [self.manager getEntriesByAuthor:@"radi"];
+    self.manager = [AppManager getManager];
+    self.items = [self.manager getEntriesByAuthor:self.manager.loggedUser.objectId];
     
     //[self.tableView setDataSource:self];
     // Do any additional setup after loading the view, typically from a nib.
@@ -63,12 +74,20 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"myAddCell"];
     }
-    AddEntry *currentEntry = self.items[row];
     
-    cell.textLabel.text = currentEntry.entryTitle;
-    cell.detailTextLabel.text = currentEntry.entryDetail;
-    UIImage *currentImage = [UIImage imageNamed:currentEntry.entryAvatar];
-    [cell.imageView setImage:currentImage];
+    //RADI mock data
+//    AddEntry *currentEntry = self.items[row];
+//    
+//    cell.textLabel.text = currentEntry.entryTitle;
+//    cell.detailTextLabel.text = currentEntry.entryDetail;
+//    UIImage *currentImage = [UIImage imageNamed:currentEntry.entryAvatar];
+//    [cell.imageView setImage:currentImage];
+    
+    Item *currentEntry = self.items[row];
+    
+    cell.textLabel.text = currentEntry.title;
+    cell.detailTextLabel.text = currentEntry.detail;
+    
     return  cell;
     
 }
@@ -84,9 +103,16 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        AddEntry * selectedEntry = self.items[indexPath.row];
+        
+        //RADI mock data
+//        AddEntry * selectedEntry = self.items[indexPath.row];
+//        [self.manager removeEntry:selectedEntry];
+//        self.items = [self.manager getEntriesByAuthor:@"radi"];
+        
+        Item * selectedEntry = self.items[indexPath.row];
         [self.manager removeEntry:selectedEntry];
-        self.items = [self.manager getEntriesByAuthor:@"radi"];
+        self.items = [self.manager getEntriesByAuthor: self.manager.loggedUser.objectId];
+        
         // [self.tableView reloadData];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -116,8 +142,13 @@
     long row = [path row];
     if ([segue.identifier isEqualToString:@"myAddsToDetailSegue"]) {
         DetailsViewController *dvc = [segue destinationViewController];
+        
+        //RADI mock data
         AddEntry *selectedEntry = self.items[row];
-        dvc.currentEntry = selectedEntry;
+        
+//        Item *selectedEntry = self.items[row];
+        
+//        dvc.currentEntry = selectedEntry;
     }
     // Pass the selected object to the new view controller.
 }
