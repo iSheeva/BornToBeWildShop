@@ -144,11 +144,11 @@
         DetailsViewController *dvc = [segue destinationViewController];
         
         //RADI mock data
-        AddEntry *selectedEntry = self.items[row];
+//        AddEntry *selectedEntry = self.items[row];
         
-//        Item *selectedEntry = self.items[row];
+        Item *selectedEntry = self.items[row];
         
-//        dvc.currentEntry = selectedEntry;
+        dvc.currentEntry = selectedEntry;
     }
     // Pass the selected object to the new view controller.
 }

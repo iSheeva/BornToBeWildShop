@@ -158,7 +158,12 @@
     long row = [path row];
     if ([segue.identifier isEqualToString:@"catalogueToDetailSegue"]) {
         DetailsViewController *dvc = [segue destinationViewController];
-        AddEntry *selectedEntry = self.items[row];
+        
+        //RADI mock data
+//        AddEntry *selectedEntry = self.items[row];
+//        dvc.currentEntry = selectedEntry;
+        
+        Item *selectedEntry = self.items[row];
         dvc.currentEntry = selectedEntry;
     }
     // Pass the selected object to the new view controller.

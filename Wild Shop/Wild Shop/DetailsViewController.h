@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "AddEntry.h"
+#import "Item.h"
 
 @interface DetailsViewController : UIViewController
-@property (weak, nonatomic) AddEntry *currentEntry;
+
+//RADI mock data
+//@property (weak, nonatomic) AddEntry *currentEntry;
+
+@property (weak, nonatomic) Item *currentEntry;
 @property (weak, nonatomic) IBOutlet UILabel *itemTitle;
 @property (weak, nonatomic) IBOutlet UILabel *itemDescription;
 @property (weak, nonatomic) IBOutlet UIImageView *itemAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *itemCreationDate;
 @property (weak, nonatomic) IBOutlet UILabel *itemContacts;
 @property (weak, nonatomic) IBOutlet UILabel *itemAuthor;
+
 @end
