@@ -56,6 +56,13 @@ static AppManager *sharedMyManager = nil;
     return  filteredEntries;
 }
 
+-(NSArray *) getRecentEntriesWithCount: (int)count {
+    NSArray *sortedArray;
+    sortedArray = [self.itemsData sortedArrayUsingSelector:@selector(compare:)];
+    return [sortedArray subarrayWithRange:NSMakeRange(0, count <= [sortedArray count] ? count : [sortedArray
+                                                       count])];
+}
+
 -(void) removeEntry: (Item *)entry {
     [entry deleteInBackground];
     [self.itemsData removeObject:entry];

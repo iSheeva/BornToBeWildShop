@@ -9,10 +9,14 @@
 #import "RecentAddsTableViewController.h"
 #import "EntryManager.h"
 #import "DetailsViewController.h"
+#import "AppManager.h"
 
 @interface RecentAddsTableViewController ()
 
-@property EntryManager *manager;
+//RADI mock data
+//@property EntryManager *manager;
+
+@property AppManager *manager;
 @property NSArray * items;
 
 @end
@@ -28,7 +32,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.manager = [EntryManager getManager];
+    //RADI mock data
+//    self.manager = [EntryManager getManager];
+    
+    self.manager = [AppManager getManager];
+    
     self.items = [self.manager getRecentEntriesWithCount:15];
     
     //[self.tableView setDataSource:self];
@@ -60,12 +68,22 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"latestAddCell"];
     }
-    AddEntry *currentEntry = self.items[row];
     
-    cell.textLabel.text = currentEntry.entryTitle;
-    cell.detailTextLabel.text = currentEntry.entryDetail;
-    UIImage *currentImage = [UIImage imageNamed:currentEntry.entryAvatar];
-    [cell.imageView setImage:currentImage];
+    //RADI mock data
+//    AddEntry *currentEntry = self.items[row];
+//    
+//    cell.textLabel.text = currentEntry.entryTitle;
+//    cell.detailTextLabel.text = currentEntry.entryDetail;
+//    UIImage *currentImage = [UIImage imageNamed:currentEntry.entryAvatar];
+//    [cell.imageView setImage:currentImage];
+    
+    Item *currentEntry = self.items[row];
+    
+    cell.textLabel.text = currentEntry.title;
+    cell.detailTextLabel.text = currentEntry.detail;
+//    UIImage *currentImage = [UIImage imageNamed:currentEntry.entryAvatar];
+//    [cell.imageView setImage:currentImage];
+
     return  cell;
     
 }
@@ -112,7 +130,12 @@
     long row = [path row];
     if ([segue.identifier isEqualToString:@"recentAddsToDetailSegue"]) {
         DetailsViewController *dvc = [segue destinationViewController];
-        AddEntry *selectedEntry = self.items[row];
+        
+        //RADI mock data
+//        AddEntry *selectedEntry = self.items[row];
+//        dvc.currentEntry = selectedEntry;
+        
+        Item *selectedEntry = self.items[row];
         dvc.currentEntry = selectedEntry;
     }
     // Pass the selected object to the new view controller.

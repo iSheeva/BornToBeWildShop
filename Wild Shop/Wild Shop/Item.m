@@ -26,4 +26,8 @@
     [self registerSubclass];
 }
 
+- (NSComparisonResult)compare:(Item *)otherObject {
+    return [otherObject.createdAt compare:self.createdAt];
+}
+
 @end

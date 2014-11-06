@@ -19,4 +19,6 @@
 @property int category;
 @property (nonatomic) PFGeoPoint *location;
 
+- (NSComparisonResult)compare: (Item *)otherObject;
+
 @end

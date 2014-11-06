@@ -20,5 +20,6 @@
 -(NSArray *) getAllEntries;
 -(NSArray *) getEntriesByAuthor: (NSString *) author;
 -(void) removeEntry: (Item *)entry;
+-(NSArray *) getRecentEntriesWithCount: (int)count;
 
 @end
