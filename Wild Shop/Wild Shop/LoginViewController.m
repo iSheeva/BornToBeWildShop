@@ -9,7 +9,9 @@
 #import "LoginViewController.h"
 #import "Item.h"
 
-@interface LoginViewController ()
+@interface LoginViewController () {
+    PFUser *_user;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
@@ -23,16 +25,7 @@
     user.username = self.username.text;
     user.password = self.password.text;
     
-    [PFUser logInWithUsernameInBackground:user.username
-                                 password:user.password
-                                    block:^(PFUser *user, NSError *error) {
-                                        if (user) {
-                                            NSLog(@"logged in");
-                                        } else {
-                                            NSString *errorString = [error userInfo][@"error"];
-                                            [[[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-                                        }
-                                    }];
+    _user = [PFUser logInWithUsername:user.username password:user.password];
 }
 
 - (IBAction)register:(id)sender {
@@ -40,15 +33,13 @@
     user.username = self.username.text;
     user.password = self.password.text;
     
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            NSLog(@"registered");
-            [self login:nil];
-        } else {
-            NSString *errorString = [error userInfo][@"error"];
-            [[[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-        }
-    }];
+    if ([user signUp]) {
+        NSString *registeredMessage = @"User registered successfuly, please login";
+        [[[UIAlertView alloc] initWithTitle:@"Success Register" message:registeredMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    } else {
+        NSString *errorString = @"User Already Exist";
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    }
 }
 
 - (void)viewDidLoad {
@@ -59,6 +50,19 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if (_user && _user.isAuthenticated) {
+        NSLog(@"logged in");
+        return YES;
+    }
+    else {
+        NSString *errorString = @"Wrong password or username";
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+        
+        return NO;
+    }
 }
 
 /*
