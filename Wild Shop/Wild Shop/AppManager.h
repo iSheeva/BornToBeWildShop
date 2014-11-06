@@ -12,8 +12,10 @@
 @interface AppManager : NSObject
 
 @property (nonatomic, retain) PFUser *loggedUser;
-@property (nonatomic, retain) NSMutableArray *itemsData	;
+@property (nonatomic, retain) NSMutableArray *itemsData;
 
-+ (id) sharedManager;
++ (id) getManager;
+-(NSArray *) getEntriesByCategory: (int)category;
+-(NSArray *) getAllEntries;
 
 @end

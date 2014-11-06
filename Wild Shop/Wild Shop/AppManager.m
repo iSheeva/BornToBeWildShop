@@ -7,12 +7,13 @@
 //
 
 #import "AppManager.h"
+#import "Item.h"
 
 @implementation AppManager
 
 static AppManager *sharedMyManager = nil;
 
-+ (id) sharedManager {
++ (id) getManager {
     if (sharedMyManager == nil) {
         sharedMyManager = [[self alloc] init];
     }
@@ -26,5 +27,21 @@ static AppManager *sharedMyManager = nil;
     }
     return self;
 }
+
+-(NSArray *) getEntriesByCategory: (int)category {
+    NSMutableArray *filteredEntries = [[NSMutableArray alloc] init];
+    for (Item *item in self.itemsData) {
+        if (item.category == category) {
+            [filteredEntries addObject:item];
+        }
+    }
+    
+    return  filteredEntries;
+}
+
+-(NSArray *) getAllEntries {
+    return self.itemsData;
+}
+
 
 @end

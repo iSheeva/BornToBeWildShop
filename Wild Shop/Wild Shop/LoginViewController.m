@@ -70,13 +70,12 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    [[AppManager sharedManager] setLoggedUser:_user];
+    [[AppManager getManager] setLoggedUser:_user];
     
     PFQuery *query = [Item query];
     NSArray *items = [query findObjects];
     
-    [[[AppManager sharedManager] itemsData] addObjectsFromArray:items];
-    
+    [[[AppManager getManager] itemsData] addObjectsFromArray:items];
 }
 
 // SET LOGOUT BUTTON DESTINATION

@@ -12,11 +12,17 @@
 #import <Parse/Parse.h>
 #import "AddEntry.h"
 #import "AppManager.h"
+#import "Item.h"
 
 @interface CatalogueViewController ()
+
 @property NSArray * categories;
-@property EntryManager *manager;
 @property NSArray * items;
+@property AppManager *manager;
+
+//RADI mock data
+//@property EntryManager *manager;
+
 @end
 
 @implementation CatalogueViewController
@@ -31,7 +37,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.manager = [EntryManager getManager];
+    //RADI mock data
+//    self.manager = [EntryManager getManager];
+    
+    
+    self.manager = [AppManager getManager];
     
     [self.customTableView setDataSource:self];
     // Do any additional setup after loading the view, typically from a nib.
@@ -42,9 +52,9 @@
     NSLog(@"%@", [PFUser currentUser]);
     // Do any additional setup after loading the view.
     
-    NSLog(@"test loggedUser from singleton object - %@", [[AppManager sharedManager] loggedUser]);
+    NSLog(@"test loggedUser from singleton object - %@", [[AppManager getManager] loggedUser]);
     
-    NSLog(@"test itemsData from singleton object - %@", [[AppManager sharedManager] itemsData]);
+    NSLog(@"test itemsData from singleton object - %@", [[AppManager getManager] getAllEntries]);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,12 +116,21 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"catalogueCell"];
     }
-    AddEntry *currentEntry = self.items[row];
+    //RADI mock data
+//    AddEntry *currentEntry = self.items[row];
     
-    cell.textLabel.text = currentEntry.entryTitle;
-    cell.detailTextLabel.text = currentEntry.entryDetail;
-    UIImage *currentImage = [UIImage imageNamed:currentEntry.entryAvatar];
-    [cell.imageView setImage:currentImage];
+//    Item *currentEntry = self.items[row];
+//    
+//    cell.textLabel.text = currentEntry.entryTitle;
+//    cell.detailTextLabel.text = currentEntry.entryDetail;
+//    UIImage *currentImage = [UIImage imageNamed:currentEntry.entryAvatar];
+//    [cell.imageView setImage:currentImage];
+    
+    Item *currentItem = self.items[row];
+    
+    cell.textLabel.text = currentItem.title;
+    cell.detailTextLabel.text = currentItem.detail;
+    
     return  cell;
     
 }

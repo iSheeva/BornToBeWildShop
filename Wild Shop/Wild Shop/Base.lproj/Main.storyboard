@@ -243,6 +243,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppn-hW-Bwx">
+                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="IFJ-Ul-kTb"/>
+                                    <constraint firstAttribute="width" constant="368" id="tTx-c3-YS5"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="IFJ-Ul-kTb"/>
+                                        <exclude reference="tTx-c3-YS5"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="IFJ-Ul-kTb"/>
+                                        <include reference="tTx-c3-YS5"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="pg2-jH-k2c" id="p28-vH-YbR"/>
+                                    <outlet property="delegate" destination="pg2-jH-k2c" id="gK6-jD-vfB"/>
+                                </connections>
+                            </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dTf-JI-La6">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -295,29 +318,6 @@
                                     </mask>
                                 </variation>
                             </tableView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppn-hW-Bwx">
-                                <rect key="frame" x="0.0" y="-162" width="320" height="162"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="IFJ-Ul-kTb"/>
-                                    <constraint firstAttribute="width" constant="368" id="tTx-c3-YS5"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="IFJ-Ul-kTb"/>
-                                        <exclude reference="tTx-c3-YS5"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="IFJ-Ul-kTb"/>
-                                        <include reference="tTx-c3-YS5"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <outlet property="dataSource" destination="pg2-jH-k2c" id="p28-vH-YbR"/>
-                                    <outlet property="delegate" destination="pg2-jH-k2c" id="gK6-jD-vfB"/>
-                                </connections>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -339,8 +339,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="dTf-JI-La6"/>
                                 <exclude reference="ppn-hW-Bwx"/>
+                                <exclude reference="dTf-JI-La6"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="C40-Sc-zqH"/>
@@ -362,8 +362,8 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="dTf-JI-La6"/>
                                 <include reference="ppn-hW-Bwx"/>
+                                <include reference="dTf-JI-La6"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="C40-Sc-zqH"/>
