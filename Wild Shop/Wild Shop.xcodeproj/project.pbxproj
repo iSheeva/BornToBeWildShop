@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D8852D91A0BBCE60042B004 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8852D81A0BBCE60042B004 /* AppManager.m */; };
 		5DB9CC421A011AD60042A069 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9CC411A011AD60042A069 /* main.m */; };
 		5DB9CC451A011AD60042A069 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9CC441A011AD60042A069 /* AppDelegate.m */; };
 		5DB9CC4B1A011AD60042A069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB9CC491A011AD60042A069 /* Main.storyboard */; };
@@ -47,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D8852D71A0BBCE60042B004 /* AppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
+		5D8852D81A0BBCE60042B004 /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
 		5DB9CC3C1A011AD60042A069 /* Wild Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wild Shop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB9CC401A011AD60042A069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DB9CC411A011AD60042A069 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 				5DDDDEA41A08E27A00F0B24F /* Item.m */,
 				84CD161B1A097CF1001BC228 /* EntryManager.h */,
 				84CD161C1A097CF1001BC228 /* EntryManager.m */,
+				5D8852D71A0BBCE60042B004 /* AppManager.h */,
+				5D8852D81A0BBCE60042B004 /* AppManager.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				8441A1261A07B50B00DF6925 /* DetailsViewController.m in Sources */,
 				8441A1231A07B4C500DF6925 /* RecentAddsTableViewController.m in Sources */,
 				8441A11A1A07B45700DF6925 /* LoginViewController.m in Sources */,
+				5D8852D91A0BBCE60042B004 /* AppManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

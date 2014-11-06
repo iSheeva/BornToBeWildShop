@@ -11,6 +11,7 @@
 #import "EntryManager.h"
 #import <Parse/Parse.h>
 #import "AddEntry.h"
+#import "AppManager.h"
 
 @interface CatalogueViewController ()
 @property NSArray * categories;
@@ -40,6 +41,10 @@
     NSLog(@"in catalogue");
     NSLog(@"%@", [PFUser currentUser]);
     // Do any additional setup after loading the view.
+    
+    NSLog(@"test loggedUser from singleton object - %@", [[AppManager sharedManager] loggedUser]);
+    
+    NSLog(@"test itemsData from singleton object - %@", [[AppManager sharedManager] itemsData]);
 }
 
 - (void)didReceiveMemoryWarning {

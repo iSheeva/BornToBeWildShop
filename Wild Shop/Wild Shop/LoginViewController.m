@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "Item.h"
+#import "AppManager.h"
 
 @interface LoginViewController () {
     PFUser *_user;
@@ -54,7 +55,6 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if (_user && _user.isAuthenticated) {
-        NSLog(@"logged in");
         return YES;
     }
     else {
@@ -65,15 +65,19 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    [[AppManager sharedManager] setLoggedUser:_user];
+    
+    PFQuery *query = [Item query];
+    NSArray *items = [query findObjects];
+    
+    [[[AppManager sharedManager] itemsData] addObjectsFromArray:items];
+    
 }
-*/
 
 // SET LOGOUT BUTTON DESTINATION
 -(IBAction)goToThisView:(UIStoryboardSegue *) segue{
