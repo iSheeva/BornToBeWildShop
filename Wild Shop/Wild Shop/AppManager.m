@@ -68,4 +68,21 @@ static AppManager *sharedMyManager = nil;
     [self.itemsData removeObject:entry];
 }
 
+-(BOOL) addNewEntry: (Item *)entry {
+    if ([entry save]) {
+        [self.itemsData addObject:entry];
+        return YES;
+    };
+    return NO;
+}
+
+-(BOOL) addNewEntry: (Item *)entry
+            atIndex:(int) index{
+    if ([entry save]) {
+        [self.itemsData insertObject:entry atIndex:index];
+        return YES;
+    }
+    return NO;
+}
+
 @end

@@ -21,5 +21,8 @@
 -(NSArray *) getEntriesByAuthor: (NSString *) author;
 -(void) removeEntry: (Item *)entry;
 -(NSArray *) getRecentEntriesWithCount: (int)count;
+-(BOOL) addNewEntry: (Item *)entry;
+-(BOOL) addNewEntry: (Item *)entry
+            atIndex: (int)index;
 
 @end

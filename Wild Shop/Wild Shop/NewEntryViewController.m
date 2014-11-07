@@ -7,18 +7,22 @@
 //
 
 #import "NewEntryViewController.h"
+#import "AppManager.h"
 
 @interface NewEntryViewController ()
 
 @property NSArray * categories;
-@property EntryManager *manager;
+@property AppManager *manager;
+
+//RADI mock data
+//@property EntryManager *manager;
 
 @end
 
 @implementation NewEntryViewController {
     NSString *title;
     NSString *detail;
-    NSString *author;
+    PFUser *author;
     NSString *contact;
     NSString *avatar;
     int category;
@@ -28,8 +32,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.categories = @[@"all", @"motorcycle", @"part", @"accessory"];
-    self.manager = [EntryManager getManager];
-    author = @"radi";
+    
+    //RADI mock data
+//    self.manager = [EntryManager getManager];
+    
+    self.manager = [AppManager getManager];
+    
+    author = self.manager.loggedUser;
     category = 0;
     avatar = self.categories[category];
 }
@@ -66,10 +75,22 @@
         return;
     }
     
-    AddEntry *newEntry = [[AddEntry alloc] initWithTitle:title withDetails:detail withContacts:contact withAuthor:author withAvatar:avatar withCategory:category];
-    newEntry.entryDate = [NSDate date];
-    [self.manager addNewEntry:newEntry atIndex:0];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //RADI mock data
+//    AddEntry *newEntry = [[AddEntry alloc] initWithTitle:title withDetails:detail withContacts:contact withAuthor:author withAvatar:avatar withCategory:category];
+//    newEntry.entryDate = [NSDate date];
+    
+    Item *newEntry = [[Item alloc] init];
+    newEntry.title = title;
+    newEntry.detail = detail;
+    newEntry.contacts = contact;
+    newEntry.author = author;
+    newEntry.category = category;
+    
+    if ([self.manager addNewEntry:newEntry atIndex:0]) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self showMessage:@"Server error"];
+    }
 }
          
 -(void)showMessage:(NSString *)message {
