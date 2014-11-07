@@ -11,7 +11,7 @@
 
 @interface NewEntryViewController ()
 
-@property NSArray * categories;
+@property NSArray *categories;
 @property AppManager *manager;
 
 //RADI mock data
@@ -24,7 +24,7 @@
     NSString *detail;
     PFUser *author;
     NSString *contact;
-    NSString *avatar;
+    PFFile *avatar;
     int category;
     
 }
@@ -40,7 +40,6 @@
     
     author = self.manager.loggedUser;
     category = 0;
-    avatar = self.categories[category];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +48,37 @@
 }
 
 - (IBAction)selectPicture:(id)sender {
-    [self showMessage:@"Option is in construction!"];
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+#pragma mark - Image Picker Controller delegate methods
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    
+    NSData *imageData = UIImagePNGRepresentation(chosenImage);
+    
+    avatar = [PFFile fileWithName:@"image.png" data:imageData];
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 }
 
 - (IBAction)selectLocation:(id)sender {
@@ -85,6 +114,9 @@
     newEntry.contacts = contact;
     newEntry.author = author;
     newEntry.category = category;
+    
+    NSLog(@"%@", avatar);
+    newEntry.avatar = avatar;
     
     if ([self.manager addNewEntry:newEntry atIndex:0]) {
         [self dismissViewControllerAnimated:YES completion:nil];

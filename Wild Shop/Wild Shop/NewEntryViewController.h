@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EntryManager.h"
 
-@interface NewEntryViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface NewEntryViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *inputTitle;
 @property (weak, nonatomic) IBOutlet UITextView *inputDescription;

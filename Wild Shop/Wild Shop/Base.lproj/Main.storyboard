@@ -510,30 +510,6 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mns-xg-OoL">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="1" green="0.41953609777434131" blue="0.75239197514573042" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="ZrG-LE-3cQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Select Picture">
-                                    <color key="titleColor" red="0.98966042736946069" green="1" blue="0.97601166973142561" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ZrG-LE-3cQ"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="ZrG-LE-3cQ"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="selectPicture:" destination="n2W-EV-qRE" eventType="touchUpInside" id="B8H-uD-JI2"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHe-5W-Q6J">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.41953609780000001" blue="0.7523919751" alpha="1" colorSpace="calibratedRGB"/>
@@ -629,6 +605,30 @@
                                     <outlet property="delegate" destination="n2W-EV-qRE" id="8IO-AM-ViH"/>
                                 </connections>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mns-xg-OoL">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.41953609777434131" blue="0.75239197514573042" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ZrG-LE-3cQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Select Picture">
+                                    <color key="titleColor" red="0.98966042736946069" green="1" blue="0.97601166973142561" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ZrG-LE-3cQ"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="ZrG-LE-3cQ"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="selectPicture:" destination="n2W-EV-qRE" eventType="touchUpInside" id="B8H-uD-JI2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.62926418579999999" green="1" blue="0.92218537249999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -677,12 +677,12 @@
                                 <exclude reference="cho-5J-cyh"/>
                                 <exclude reference="0h0-2a-ECc"/>
                                 <exclude reference="JP2-sz-sKm"/>
-                                <exclude reference="mns-xg-OoL"/>
                                 <exclude reference="xHe-5W-Q6J"/>
                                 <exclude reference="9eG-I8-B2R"/>
                                 <exclude reference="kTQ-XQ-56v"/>
                                 <exclude reference="qbg-PR-rVI"/>
                                 <exclude reference="ps5-Iy-MM4"/>
+                                <exclude reference="mns-xg-OoL"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Fdp-Di-aQ0"/>
@@ -731,12 +731,12 @@
                                 <include reference="cho-5J-cyh"/>
                                 <include reference="0h0-2a-ECc"/>
                                 <include reference="JP2-sz-sKm"/>
-                                <include reference="mns-xg-OoL"/>
                                 <include reference="xHe-5W-Q6J"/>
                                 <include reference="9eG-I8-B2R"/>
                                 <include reference="kTQ-XQ-56v"/>
                                 <include reference="qbg-PR-rVI"/>
                                 <include reference="ps5-Iy-MM4"/>
+                                <include reference="mns-xg-OoL"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Fdp-Di-aQ0"/>
