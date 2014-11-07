@@ -18,28 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yod-q9-OQd">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <color key="backgroundColor" red="0.1811855094" green="1" blue="0.9337096735" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="368" id="aiT-a1-3Nb"/>
-                                    <constraint firstAttribute="height" constant="30" id="lvJ-nT-bYU"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="aiT-a1-3Nb"/>
-                                        <exclude reference="lvJ-nT-bYU"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="aiT-a1-3Nb"/>
-                                        <include reference="lvJ-nT-bYU"/>
-                                    </mask>
-                                </variation>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aej-yP-3SJ">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.2248778179" green="1" blue="0.1143347539" alpha="1" colorSpace="calibratedRGB"/>
@@ -87,7 +65,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SAg-So-Lxw">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SAg-So-Lxw">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <color key="backgroundColor" red="0.1811855094" green="1" blue="0.9337096735" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -136,6 +114,28 @@
                                     <action selector="register:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cam-Fs-K2N"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Yod-q9-OQd">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <color key="backgroundColor" red="0.1811855094" green="1" blue="0.9337096735" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="368" id="aiT-a1-3Nb"/>
+                                    <constraint firstAttribute="height" constant="30" id="lvJ-nT-bYU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="aiT-a1-3Nb"/>
+                                        <exclude reference="lvJ-nT-bYU"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="aiT-a1-3Nb"/>
+                                        <include reference="lvJ-nT-bYU"/>
+                                    </mask>
+                                </variation>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.13239602404703321" blue="0.79598802075728159" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -161,11 +161,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="Yod-q9-OQd"/>
                                 <exclude reference="aej-yP-3SJ"/>
                                 <exclude reference="3Qo-DG-34W"/>
                                 <exclude reference="SAg-So-Lxw"/>
                                 <exclude reference="3bL-KX-SYh"/>
+                                <exclude reference="Yod-q9-OQd"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="7Zt-2E-Oox"/>
@@ -191,11 +191,11 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="Yod-q9-OQd"/>
                                 <include reference="aej-yP-3SJ"/>
                                 <include reference="3Qo-DG-34W"/>
                                 <include reference="SAg-So-Lxw"/>
                                 <include reference="3bL-KX-SYh"/>
+                                <include reference="Yod-q9-OQd"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="7Zt-2E-Oox"/>
@@ -458,14 +458,14 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter add title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uam-CV-gl1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter add title" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Uam-CV-gl1">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.79667097708165668" blue="0.0024565296656936519" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.18653312150611756" green="0.30556942477978311" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter contact information" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cho-5J-cyh">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter contact information" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cho-5J-cyh">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.79667097710000001" blue="0.0024565296660000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.18653312150000001" green="0.30556942479999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -572,13 +572,6 @@
                                     <action selector="saveNewEntry:" destination="n2W-EV-qRE" eventType="touchUpInside" id="E9i-EI-v3j"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter item description here." translatesAutoresizingMaskIntoConstraints="NO" id="qbg-PR-rVI">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="1" green="0.77845714437543956" blue="0.17893513934310856" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="textColor" red="0.15486296340202144" green="0.040761142030595776" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mns-xg-OoL">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.41953609777434131" blue="0.75239197514573042" alpha="1" colorSpace="calibratedRGB"/>
@@ -639,6 +632,13 @@
                                     <segue destination="wmE-VO-UID" kind="unwind" unwindAction="goToCatalogue:" id="fLt-j7-wBy"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Enter item description here." translatesAutoresizingMaskIntoConstraints="NO" id="qbg-PR-rVI">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="0.77845714437543956" blue="0.17893513934310856" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.15486296340202144" green="0.040761142030595776" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.62926418579999999" green="1" blue="0.92218537249999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -691,11 +691,11 @@
                                 <exclude reference="xHe-5W-Q6J"/>
                                 <exclude reference="9eG-I8-B2R"/>
                                 <exclude reference="kTQ-XQ-56v"/>
-                                <exclude reference="qbg-PR-rVI"/>
                                 <exclude reference="mns-xg-OoL"/>
                                 <exclude reference="Eej-Ts-WEd"/>
                                 <exclude reference="ps5-Iy-MM4"/>
                                 <exclude reference="DsG-Lq-D6B"/>
+                                <exclude reference="qbg-PR-rVI"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="F57-fZ-8PA"/>
@@ -748,11 +748,11 @@
                                 <include reference="xHe-5W-Q6J"/>
                                 <include reference="9eG-I8-B2R"/>
                                 <include reference="kTQ-XQ-56v"/>
-                                <include reference="qbg-PR-rVI"/>
                                 <include reference="mns-xg-OoL"/>
                                 <include reference="Eej-Ts-WEd"/>
                                 <include reference="ps5-Iy-MM4"/>
                                 <include reference="DsG-Lq-D6B"/>
+                                <include reference="qbg-PR-rVI"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="F57-fZ-8PA"/>
@@ -1238,16 +1238,16 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mI0-4Y-Ibh">
-                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
-                                <color key="color" red="0.0042519783840000002" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfb-GC-dyc">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <connections>
                                     <outlet property="delegate" destination="e7m-03-UlA" id="AKf-Vc-ZWW"/>
                                 </connections>
                             </mapView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mI0-4Y-Ibh">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <color key="color" red="0.0042519783840000002" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1264,8 +1264,8 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="zLQ-Ya-ZsL"/>
-                                <exclude reference="mI0-4Y-Ibh"/>
                                 <exclude reference="yfb-GC-dyc"/>
+                                <exclude reference="mI0-4Y-Ibh"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="a1g-Hw-t47"/>
@@ -1282,8 +1282,8 @@
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="zLQ-Ya-ZsL"/>
-                                <include reference="mI0-4Y-Ibh"/>
                                 <include reference="yfb-GC-dyc"/>
+                                <include reference="mI0-4Y-Ibh"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="a1g-Hw-t47"/>

@@ -16,9 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.progressBar startAnimating];
     self.mapView.delegate = self;
-    [self mapView:self.mapView didUpdateUserLocation:nil];
+    [self.progressBar setHidden:NO];
+    [self.progressBar startAnimating];
+    [self performSelector:@selector(showLocationOnMap) withObject:self afterDelay:1.0 ];
+    //[self showLocationOnMap];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,9 +28,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
-{
-    
+- (void)showLocationOnMap {
     CLLocationCoordinate2D currentCoordinate = self.currentLocation.coordinate;
     //CLLocationCoordinate2D currentCoordinate = userLocation.coordinate;
     
@@ -41,6 +41,7 @@
     point.subtitle = @"Check it out!";
     [self.mapView addAnnotation:point];
     [self.progressBar stopAnimating];
+
 }
 
 /*
@@ -53,4 +54,21 @@
 }
 */
 
+// Call if using location update
+//- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+//{
+//    
+//    CLLocationCoordinate2D currentCoordinate = self.currentLocation.coordinate;
+//    //CLLocationCoordinate2D currentCoordinate = userLocation.coordinate;
+//    
+//    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(currentCoordinate, 800, 800);
+//    [self.mapView setRegion:[self.mapView regionThatFits:region] animated:YES];
+//    
+//    MKPointAnnotation *point = [[MKPointAnnotation alloc] init];
+//    point.coordinate = currentCoordinate;
+//    point.title = @"Item Location";
+//    point.subtitle = @"Check it out!";
+//    [self.mapView addAnnotation:point];
+//    [self.progressBar stopAnimating];
+//}
 @end
