@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *itemCreationDate;
 @property (weak, nonatomic) IBOutlet UILabel *itemContacts;
 @property (weak, nonatomic) IBOutlet UILabel *itemAuthor;
+@property (weak, nonatomic) IBOutlet UIButton *showLocationButton;
 
 @end

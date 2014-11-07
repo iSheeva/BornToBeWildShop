@@ -98,7 +98,7 @@
             [self.customTableView reloadData];
             break;
         default:
-            background = [UIColor whiteColor];
+            background = [UIColor cyanColor];
             self.items = [self.manager getAllEntries];
             [self.customTableView reloadData];
             break;
@@ -145,10 +145,10 @@
 }
 
 // SET BACK BUTTON DESTINATION
--(IBAction)goToThisView:(UIStoryboardSegue *) segue{
+-(IBAction)goToCatalogue:(UIStoryboardSegue *) segue{
     //id source = [segue sourceViewController];
     //id destination = [segue destinationViewController];
-    [[[UIAlertView alloc] initWithTitle:@"You are back" message:@"Welcome" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    [[[UIAlertView alloc] initWithTitle:@"Item warning" message:@"Item was not saved!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 #pragma mark - Navigation

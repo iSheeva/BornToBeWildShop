@@ -7,6 +7,7 @@
 //
 
 #import "DetailsViewController.h"
+#import "MapViewController.h"
 
 @interface DetailsViewController ()
 
@@ -19,6 +20,10 @@
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"dd/MM/yyyy hh:mm"];
+    
+    if (self.currentEntry.location != nil) {
+        [self.showLocationButton setHidden:NO];
+    }
     
     //RADI mock data
 //    self.itemTitle.text = self.currentEntry.entryTitle;
@@ -65,14 +70,24 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/*
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
+    if ([[segue identifier] isEqualToString:@"showMapSegue"]) {
+        MapViewController *mvc = [segue destinationViewController];
+        CLLocation *currentLocation = [[CLLocation alloc] initWithLatitude:self.currentEntry.location.latitude longitude:self.currentEntry.location.longitude];
+        mvc.currentLocation = currentLocation;
+    }
     // Pass the selected object to the new view controller.
 }
-*/
+
+// SET BACK BUTTON DESTINATION
+-(IBAction)goToDetails:(UIStoryboardSegue *) segue{
+    //id source = [segue sourceViewController];
+    //id destination = [segue destinationViewController];
+//    [[[UIAlertView alloc] initWithTitle:@"Item warning" message:@"Item was not saved!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+}
+
 
 @end

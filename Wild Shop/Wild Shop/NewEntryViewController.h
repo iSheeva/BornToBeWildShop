@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "EntryManager.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface NewEntryViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface NewEntryViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *inputTitle;
 @property (weak, nonatomic) IBOutlet UITextView *inputDescription;
 @property (weak, nonatomic) IBOutlet UITextField *inputContact;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *progressBar;
 
 @end

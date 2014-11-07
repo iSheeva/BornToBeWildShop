@@ -27,11 +27,22 @@
     PFFile *avatar;
     int category;
     
+    // LOCATION FIELDS
+    CLLocationManager *locationManager;
+    CLGeocoder *geocoder;
+    CLPlacemark *placemark;
+    CLLocation *currentLocation;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.categories = @[@"all", @"motorcycle", @"part", @"accessory"];
+    
+    // INITIALIZE LOCATION FIELDS
+    [self.progressBar stopAnimating];
+    locationManager = [[CLLocationManager alloc] init];
+    geocoder = [[CLGeocoder alloc] init];
+    
     
     //RADI mock data
 //    self.manager = [EntryManager getManager];
@@ -47,6 +58,64 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - CLLocationManagerDelegate methods
+- (IBAction)getCurrentLocation:(id)sender {
+    [self.progressBar stopAnimating];
+    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    locationManager.distanceFilter = kCLLocationAccuracyHundredMeters;
+    locationManager.delegate = self;
+    [locationManager requestAlwaysAuthorization];
+    [locationManager startUpdatingLocation];
+    [self.progressBar startAnimating];
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    [self.progressBar stopAnimating];
+    currentLocation = [locations lastObject];
+    
+    if (currentLocation == nil) {
+        [self locationManager:locationManager didFailWithError:[[NSError alloc] init]];
+        return;
+    }
+    
+    double currentLongitude = currentLocation.coordinate.longitude;
+    double currentLatitude = currentLocation.coordinate.latitude;
+    NSMutableString *locationString = [NSMutableString stringWithFormat:@"Latitude: %.8f \n Longitude: %.8f \n",
+                                currentLatitude, currentLongitude];
+    
+    [locationManager stopUpdatingLocation];
+    
+    [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+        if (error == nil && [placemarks count] > 0) {
+            placemark = [placemarks lastObject];
+            NSString *addressInfo = [NSString stringWithFormat:@"%@ %@\n%@ %@\n%@\n%@",
+                                        placemark.subThoroughfare != nil ? placemark.subThoroughfare : @"",
+                                        placemark.thoroughfare != nil ? placemark.thoroughfare : @"",
+                                        placemark.postalCode != nil ? placemark.postalCode : @"",
+                                        placemark.locality != nil ? placemark.locality : @"",
+                                        placemark.administrativeArea != nil ? placemark.administrativeArea : @"",
+                                        placemark.country != nil ? placemark.country : @""];
+            if (placemark != nil) {
+                [locationString appendString:addressInfo];
+            }
+            
+            [self showMessage:locationString withTitle:@"Location Info"];
+        } else {
+            [self showMessage:locationString withTitle:@"Location Info"];
+            NSLog(@"%@", error.debugDescription);
+        }
+    }];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    [self.progressBar stopAnimating];
+    [[[UIAlertView alloc] initWithTitle:@"Location error" message:@"Cannot detect location! Check you connectivity and permissions" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show ];
+}
+
+
+// GET PICTURE BUTTON ACTION
 - (IBAction)selectPicture:(id)sender {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
@@ -81,26 +150,22 @@
     
 }
 
-- (IBAction)selectLocation:(id)sender {
-    [self showMessage:@"Option is in construction!"];
-}
-
 - (IBAction)saveNewEntry:(id)sender {
     title = self.inputTitle.text;
     if (![self checkInput:title]) {
-        [self showMessage:[NSString stringWithFormat: @"Title must be at least 5 symbols long"]];
+        [self showMessage:[NSString stringWithFormat: @"Title must be at least 5 symbols long"] withTitle:@"Invalid Title"];
          return;
     }
          
     detail = self.inputDescription.text;
     if (![self checkInput:detail]) {
-        [self showMessage:[NSString stringWithFormat: @"Details must be at least 5 symbols long"]];
+        [self showMessage:[NSString stringWithFormat: @"Description must be at least 5 symbols long"] withTitle:@"Invalid Description"];
         return;
     }
     
     contact = self.inputContact.text;
     if (![self checkInput:contact]) {
-        [self showMessage:[NSString stringWithFormat: @"Please provide valid contact information."]];
+        [self showMessage:[NSString stringWithFormat: @"Please provide valid contact information."] withTitle:@"Invalid Contact Info"];
         return;
     }
     
@@ -115,18 +180,23 @@
     newEntry.author = author;
     newEntry.category = category;
     
+    if (currentLocation != nil) {
+        PFGeoPoint *point = [PFGeoPoint geoPointWithLocation:currentLocation];
+        newEntry.location = point;
+    }
+    
     NSLog(@"%@", avatar);
     newEntry.avatar = avatar;
     
     if ([self.manager addNewEntry:newEntry atIndex:0]) {
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
-        [self showMessage:@"Server error"];
+        [self showMessage:@"Server error" withTitle:@"Error Information"];
     }
 }
          
--(void)showMessage:(NSString *)message {
-    [[[UIAlertView alloc] initWithTitle:@"Invalid Input" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+-(void)showMessage:(NSString *)message withTitle:(NSString *)title {
+    [[[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
 -(BOOL)checkInput:(NSString *) input {
