@@ -31,9 +31,29 @@
     self.itemTitle.text = self.currentEntry.title;
     self.itemDescription.text = self.currentEntry.detail;
     self.itemContacts.text = self.currentEntry.contacts;
-//    self.itemAuthor.text = self.currentEntry.entryAuthor;
     self.itemCreationDate.text = [formatter stringFromDate:self.currentEntry.createdAt];
-//    [self.itemAvatar setImage:[UIImage imageNamed:self.currentEntry.entryAvatar]];
+    
+    //get author async
+    PFQuery *query = [PFUser query];
+    [query whereKey:@"objectId" equalTo:self.currentEntry.author.objectId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                PFUser *itemAuthor = [objects objectAtIndex:0];
+                self.itemAuthor.text = itemAuthor.username;
+            });
+        }
+    }];
+    
+    //get avatar async
+    [self.currentEntry.avatar getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        if (!error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.itemAvatar setImage:[UIImage imageWithData: data]];
+            });
+        }
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

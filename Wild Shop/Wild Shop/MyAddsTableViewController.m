@@ -87,6 +87,7 @@
     
     cell.textLabel.text = currentEntry.title;
     cell.detailTextLabel.text = currentEntry.detail;
+    [cell.imageView setImage: [UIImage imageWithData:currentEntry.avatar.getData]];
     
     return  cell;
     

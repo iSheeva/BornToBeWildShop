@@ -126,11 +126,12 @@
 //    UIImage *currentImage = [UIImage imageNamed:currentEntry.entryAvatar];
 //    [cell.imageView setImage:currentImage];
     
-    Item *currentItem = self.items[row];
+    Item *currentEntry = self.items[row];
     
-    cell.textLabel.text = currentItem.title;
-    cell.detailTextLabel.text = currentItem.detail;
-    
+    cell.textLabel.text = currentEntry.title;
+    cell.detailTextLabel.text = currentEntry.detail;
+    [cell.imageView setImage: [UIImage imageWithData:currentEntry.avatar.getData]];
+
     return  cell;
     
 }
