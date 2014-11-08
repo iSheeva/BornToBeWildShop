@@ -79,33 +79,33 @@
 
 // SET ACTION ON COMPONENT SELECTED
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    UIColor * background;
+    //UIColor * background;
     switch (row) {
         case 1: {
-            background = [UIColor greenColor];
+            //background = [UIColor greenColor];
             self.items = [self.manager getEntriesByCategory:1];
             [self.customTableView reloadData];
             break;
         }
         case 2:
-            background = [UIColor yellowColor];
+            //background = [UIColor yellowColor];
             self.items = [self.manager getEntriesByCategory:2];
             [self.customTableView reloadData];
             break;
         case 3:
-            background = [UIColor redColor];
+            //background = [UIColor cyanColor];
             self.items = [self.manager getEntriesByCategory:3];
             [self.customTableView reloadData];
             break;
         default:
-            background = [UIColor cyanColor];
+            //background = [UIColor colorWithRed:137 green:121 blue:255 alpha:0.3];
             self.items = [self.manager getAllEntries];
             [self.customTableView reloadData];
             break;
     }
     
     //self.showSelectionLabel.text = self.categories[row];
-    self.view.backgroundColor = background;
+    //self.view.backgroundColor = background;
     
 }
 

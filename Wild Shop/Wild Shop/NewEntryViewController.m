@@ -228,16 +228,16 @@
     UIColor * background;
     switch (row) {
         case 1:
-            background = [UIColor greenColor];
+            background = [UIColor magentaColor];
             break;
         case 2:
-            background = [UIColor yellowColor];
+            background = [UIColor orangeColor];
             break;
         case 3:
             background = [UIColor redColor];
             break;
         default:
-            background = [UIColor cyanColor];
+            background = [UIColor colorWithRed:137 green:121 blue:255 alpha:0.3];
             break;
     }
     
