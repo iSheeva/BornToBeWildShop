@@ -9,10 +9,13 @@
 #import "LoginViewController.h"
 #import "Item.h"
 #import "AppManager.h"
+#import "Reachability.h"
 #import "CoreDataHelper.h"
 #import "User.h"
 
-@interface LoginViewController ()
+@interface LoginViewController () {
+    BOOL _isConnectedToInternet;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
@@ -66,12 +69,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        _isConnectedToInternet = NO;
+        NSLog(@"There IS NO internet connection");
+    } else {
+        NSLog(@"There IS internet connection");
+        _isConnectedToInternet = YES;
+    }
+    
     _cdHelper = [[CoreDataHelper alloc] init];
     [_cdHelper setupCoreData];
     
     PFUser *currentUser = [PFUser currentUser];
     NSLog(@"%@", currentUser.username);
-    if (currentUser) {
+    if (currentUser && _isConnectedToInternet) {
         
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
         
@@ -99,7 +112,18 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        _isConnectedToInternet = NO;
+    } else {
+        _isConnectedToInternet = YES;
+    }
     
+    if (!_isConnectedToInternet) {
+        NSString *errorString = @"No internet connection, please connect to internet first";
+        [[[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

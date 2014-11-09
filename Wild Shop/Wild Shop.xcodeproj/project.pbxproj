@@ -12,6 +12,7 @@
 		5D88A18C1A0F72AC00AC44AF /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D88A18B1A0F72AC00AC44AF /* CoreDataHelper.m */; };
 		5D88A18F1A0F753D00AC44AF /* WildShop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D88A18D1A0F753D00AC44AF /* WildShop.xcdatamodeld */; };
 		5D88A1921A0F7EED00AC44AF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D88A1911A0F7EED00AC44AF /* User.m */; };
+		5D88A1961A0FA12C00AC44AF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D88A1951A0FA12C00AC44AF /* Reachability.m */; };
 		5DB9CC421A011AD60042A069 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9CC411A011AD60042A069 /* main.m */; };
 		5DB9CC451A011AD60042A069 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9CC441A011AD60042A069 /* AppDelegate.m */; };
 		5DB9CC4B1A011AD60042A069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB9CC491A011AD60042A069 /* Main.storyboard */; };
@@ -62,6 +63,8 @@
 		5D88A18E1A0F753D00AC44AF /* WildShop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WildShop.xcdatamodel; sourceTree = "<group>"; };
 		5D88A1901A0F7EED00AC44AF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		5D88A1911A0F7EED00AC44AF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5D88A1941A0FA12C00AC44AF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		5D88A1951A0FA12C00AC44AF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		5DB9CC3C1A011AD60042A069 /* Wild Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wild Shop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB9CC401A011AD60042A069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DB9CC411A011AD60042A069 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -113,9 +116,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DB9CC821A0124D20042A069 /* SystemConfiguration.framework in Frameworks */,
 				5D88A1881A0F727C00AC44AF /* CoreData.framework in Frameworks */,
 				840DA1C51A0D551F001A3DF9 /* MapKit.framework in Frameworks */,
-				5DB9CC821A0124D20042A069 /* SystemConfiguration.framework in Frameworks */,
 				5DB9CC801A0124C40042A069 /* StoreKit.framework in Frameworks */,
 				5DB9CC7E1A0124B70042A069 /* Security.framework in Frameworks */,
 				5DB9CC7C1A0124A90042A069 /* QuartzCore.framework in Frameworks */,
@@ -152,9 +155,19 @@
 			name = DBHelper;
 			sourceTree = "<group>";
 		};
+		5D88A1931A0FA10700AC44AF /* ConnectionHelper */ = {
+			isa = PBXGroup;
+			children = (
+				5D88A1941A0FA12C00AC44AF /* Reachability.h */,
+				5D88A1951A0FA12C00AC44AF /* Reachability.m */,
+			);
+			name = ConnectionHelper;
+			sourceTree = "<group>";
+		};
 		5DB9CC331A011AD60042A069 = {
 			isa = PBXGroup;
 			children = (
+				5D88A1931A0FA10700AC44AF /* ConnectionHelper */,
 				5D88A1891A0F728200AC44AF /* DBHelper */,
 				5DB9CC6A1A0123840042A069 /* Frameworks */,
 				5DB9CC3E1A011AD60042A069 /* Wild Shop */,
@@ -386,6 +399,7 @@
 				8441A1231A07B4C500DF6925 /* RecentAddsTableViewController.m in Sources */,
 				8441A11A1A07B45700DF6925 /* LoginViewController.m in Sources */,
 				5D8852D91A0BBCE60042B004 /* AppManager.m in Sources */,
+				5D88A1961A0FA12C00AC44AF /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
