@@ -150,6 +150,7 @@
     //id source = [segue sourceViewController];
     //id destination = [segue destinationViewController];
     [PFUser logOut];
+    [[AppManager getManager] setItemsData:[[NSMutableArray alloc] init]];
     [[[UIAlertView alloc] initWithTitle:@"You are out" message:@"You Logged Out! Please Come Back Soon!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
 }
 
