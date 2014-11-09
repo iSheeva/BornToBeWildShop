@@ -25,6 +25,7 @@
 @implementation RecentAddsTableViewController{
     NSString* cellIdentifier;
     NSDateFormatter *formatter;
+    NSArray * categories;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -35,6 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    categories = @[@"all", @"vehicles", @"parts", @"accessories"];
     cellIdentifier =  @"CustomTableCell";
     UINib *nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
@@ -95,7 +97,7 @@
     Item *currentEntry = self.items[row];
     
     cell.titleLabel.text = currentEntry.title;
-    cell.detailLabel.text = currentEntry.detail;
+    cell.categoryLabel.text = categories[currentEntry.category];
     cell.dateLabel.text = [formatter stringFromDate:currentEntry.createdAt];
     [cell.imageView setImage: [UIImage imageWithData:currentEntry.avatar.getData]];
 
