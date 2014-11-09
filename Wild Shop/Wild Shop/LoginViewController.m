@@ -145,6 +145,11 @@
     
 }
 
+// SET keyboard disappear if we touch anything else
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
+
 // SET LOGOUT BUTTON DESTINATION
 -(IBAction)goToThisView:(UIStoryboardSegue *) segue{
     //id source = [segue sourceViewController];

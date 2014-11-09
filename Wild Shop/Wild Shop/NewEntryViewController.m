@@ -20,12 +20,12 @@
 @end
 
 @implementation NewEntryViewController {
-    NSString *title;
-    NSString *detail;
-    PFUser *author;
-    NSString *contact;
-    PFFile *avatar;
-    int category;
+    NSString *entryTitle;
+    NSString *entryDetail;
+    PFUser *entryAuthor;
+    NSString *entryContact;
+    PFFile *entryAvatar;
+    int entryCategory;
     
     // LOCATION FIELDS
     CLLocationManager *locationManager;
@@ -49,13 +49,18 @@
     
     self.manager = [AppManager getManager];
     
-    author = self.manager.loggedUser;
-    category = 0;
+    entryAuthor = self.manager.loggedUser;
+    entryCategory = 0;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// make keyboard disappear if we touch anything else
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 #pragma mark - CLLocationManagerDelegate methods
@@ -138,7 +143,7 @@
     
     NSData *imageData = UIImagePNGRepresentation(chosenImage);
     
-    avatar = [PFFile fileWithName:@"image.png" data:imageData];
+    entryAvatar = [PFFile fileWithName:@"image.png" data:imageData];
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
@@ -151,20 +156,20 @@
 }
 
 - (IBAction)saveNewEntry:(id)sender {
-    title = self.inputTitle.text;
-    if (![self checkInput:title]) {
+    entryTitle = self.inputTitle.text;
+    if (![self checkInput:entryTitle]) {
         [self showMessage:[NSString stringWithFormat: @"Title must be at least 5 symbols long"] withTitle:@"Invalid Title"];
          return;
     }
          
-    detail = self.inputDescription.text;
-    if (![self checkInput:detail]) {
+    entryDetail = self.inputDescription.text;
+    if (![self checkInput:entryDetail]) {
         [self showMessage:[NSString stringWithFormat: @"Description must be at least 5 symbols long"] withTitle:@"Invalid Description"];
         return;
     }
     
-    contact = self.inputContact.text;
-    if (![self checkInput:contact]) {
+    entryContact = self.inputContact.text;
+    if (![self checkInput:entryContact]) {
         [self showMessage:[NSString stringWithFormat: @"Please provide valid contact information."] withTitle:@"Invalid Contact Info"];
         return;
     }
@@ -174,19 +179,19 @@
 //    newEntry.entryDate = [NSDate date];
     
     Item *newEntry = [[Item alloc] init];
-    newEntry.title = title;
-    newEntry.detail = detail;
-    newEntry.contacts = contact;
-    newEntry.author = author;
-    newEntry.category = category;
+    newEntry.title = entryTitle;
+    newEntry.detail = entryDetail;
+    newEntry.contacts = entryContact;
+    newEntry.author = entryAuthor;
+    newEntry.category = entryCategory;
     
     if (currentLocation != nil) {
         PFGeoPoint *point = [PFGeoPoint geoPointWithLocation:currentLocation];
         newEntry.location = point;
     }
     
-    NSLog(@"%@", avatar);
-    newEntry.avatar = avatar;
+    NSLog(@"%@", entryAvatar);
+    newEntry.avatar = entryAvatar;
     
     if ([self.manager addNewEntry:newEntry atIndex:0]) {
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -223,8 +228,8 @@
 
 // SET ACTION ON COMPONENT SELECTED
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    category = (int)row;
-    avatar = self.categories[category];
+    entryCategory = (int)row;
+    entryAvatar = self.categories[entryCategory];
     UIColor * background;
     switch (row) {
         case 1:
