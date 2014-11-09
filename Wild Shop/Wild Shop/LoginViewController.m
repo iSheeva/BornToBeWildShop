@@ -69,22 +69,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
-    if (networkStatus == NotReachable) {
-        _isConnectedToInternet = NO;
-        NSLog(@"There IS NO internet connection");
-    } else {
-        NSLog(@"There IS internet connection");
-        _isConnectedToInternet = YES;
-    }
-    
     _cdHelper = [[CoreDataHelper alloc] init];
     [_cdHelper setupCoreData];
     
     PFUser *currentUser = [PFUser currentUser];
     NSLog(@"%@", currentUser.username);
-    if (currentUser && _isConnectedToInternet) {
+    if (currentUser) {
         
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
         
@@ -100,8 +90,6 @@
             PFUser *user = [PFUser user];
             user.username = cdUser.username;
             user.password = cdUser.password;
-            
-            [[AppManager getManager] setLoggedUser: [PFUser logInWithUsername:user.username password:user.password]];
             
             self.username.text = cdUser.username;
             self.password.text = cdUser.password;
