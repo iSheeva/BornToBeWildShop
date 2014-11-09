@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		5D8852D91A0BBCE60042B004 /* AppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8852D81A0BBCE60042B004 /* AppManager.m */; };
+		5D88A1881A0F727C00AC44AF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D88A1871A0F727C00AC44AF /* CoreData.framework */; };
+		5D88A18C1A0F72AC00AC44AF /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D88A18B1A0F72AC00AC44AF /* CoreDataHelper.m */; };
+		5D88A18F1A0F753D00AC44AF /* WildShop.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D88A18D1A0F753D00AC44AF /* WildShop.xcdatamodeld */; };
+		5D88A1921A0F7EED00AC44AF /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D88A1911A0F7EED00AC44AF /* User.m */; };
 		5DB9CC421A011AD60042A069 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9CC411A011AD60042A069 /* main.m */; };
 		5DB9CC451A011AD60042A069 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB9CC441A011AD60042A069 /* AppDelegate.m */; };
 		5DB9CC4B1A011AD60042A069 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DB9CC491A011AD60042A069 /* Main.storyboard */; };
@@ -52,6 +56,12 @@
 /* Begin PBXFileReference section */
 		5D8852D71A0BBCE60042B004 /* AppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppManager.h; sourceTree = "<group>"; };
 		5D8852D81A0BBCE60042B004 /* AppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppManager.m; sourceTree = "<group>"; };
+		5D88A1871A0F727C00AC44AF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5D88A18A1A0F72AC00AC44AF /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		5D88A18B1A0F72AC00AC44AF /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		5D88A18E1A0F753D00AC44AF /* WildShop.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WildShop.xcdatamodel; sourceTree = "<group>"; };
+		5D88A1901A0F7EED00AC44AF /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		5D88A1911A0F7EED00AC44AF /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		5DB9CC3C1A011AD60042A069 /* Wild Shop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wild Shop.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DB9CC401A011AD60042A069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DB9CC411A011AD60042A069 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -103,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D88A1881A0F727C00AC44AF /* CoreData.framework in Frameworks */,
 				840DA1C51A0D551F001A3DF9 /* MapKit.framework in Frameworks */,
 				5DB9CC821A0124D20042A069 /* SystemConfiguration.framework in Frameworks */,
 				5DB9CC801A0124C40042A069 /* StoreKit.framework in Frameworks */,
@@ -129,9 +140,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D88A1891A0F728200AC44AF /* DBHelper */ = {
+			isa = PBXGroup;
+			children = (
+				5D88A18A1A0F72AC00AC44AF /* CoreDataHelper.h */,
+				5D88A18B1A0F72AC00AC44AF /* CoreDataHelper.m */,
+				5D88A18D1A0F753D00AC44AF /* WildShop.xcdatamodeld */,
+				5D88A1901A0F7EED00AC44AF /* User.h */,
+				5D88A1911A0F7EED00AC44AF /* User.m */,
+			);
+			name = DBHelper;
+			sourceTree = "<group>";
+		};
 		5DB9CC331A011AD60042A069 = {
 			isa = PBXGroup;
 			children = (
+				5D88A1891A0F728200AC44AF /* DBHelper */,
 				5DB9CC6A1A0123840042A069 /* Frameworks */,
 				5DB9CC3E1A011AD60042A069 /* Wild Shop */,
 				5DB9CC581A011AD60042A069 /* Wild ShopTests */,
@@ -192,6 +216,7 @@
 		5DB9CC6A1A0123840042A069 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D88A1871A0F727C00AC44AF /* CoreData.framework */,
 				840DA1C41A0D551F001A3DF9 /* MapKit.framework */,
 				5DB9CC811A0124D20042A069 /* SystemConfiguration.framework */,
 				5DB9CC7F1A0124C40042A069 /* StoreKit.framework */,
@@ -345,12 +370,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D88A1921A0F7EED00AC44AF /* User.m in Sources */,
 				84CD161D1A097CF1001BC228 /* EntryManager.m in Sources */,
 				84CD16201A099DC4001BC228 /* NewEntryViewController.m in Sources */,
 				5DDDDEA51A08E27A00F0B24F /* Item.m in Sources */,
 				84CD15E51A09338C001BC228 /* AddEntry.m in Sources */,
 				8441A11D1A07B48B00DF6925 /* CatalogueViewController.m in Sources */,
 				5DB9CC451A011AD60042A069 /* AppDelegate.m in Sources */,
+				5D88A18C1A0F72AC00AC44AF /* CoreDataHelper.m in Sources */,
+				5D88A18F1A0F753D00AC44AF /* WildShop.xcdatamodeld in Sources */,
 				5DB9CC421A011AD60042A069 /* main.m in Sources */,
 				840DA1C81A0D64A9001A3DF9 /* MapViewController.m in Sources */,
 				8441A1201A07B4B300DF6925 /* MyAddsTableViewController.m in Sources */,
@@ -570,6 +598,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5D88A18D1A0F753D00AC44AF /* WildShop.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5D88A18E1A0F753D00AC44AF /* WildShop.xcdatamodel */,
+			);
+			currentVersion = 5D88A18E1A0F753D00AC44AF /* WildShop.xcdatamodel */;
+			path = WildShop.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5DB9CC341A011AD60042A069 /* Project object */;
 }

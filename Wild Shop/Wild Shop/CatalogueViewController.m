@@ -51,10 +51,6 @@
     NSLog(@"in catalogue");
     NSLog(@"%@", [PFUser currentUser]);
     // Do any additional setup after loading the view.
-    
-    NSLog(@"test loggedUser from singleton object - %@", [[AppManager getManager] loggedUser]);
-    
-    NSLog(@"test itemsData from singleton object - %@", [[AppManager getManager] getAllEntries]);
 }
 
 - (void)didReceiveMemoryWarning {

@@ -222,6 +222,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Welcome" id="FSo-6h-gve"/>
                     <connections>
+                        <outlet property="loginButton" destination="aej-yP-3SJ" id="UdH-YN-Erh"/>
                         <outlet property="password" destination="Yod-q9-OQd" id="9ao-Jm-js4"/>
                         <outlet property="username" destination="SAg-So-Lxw" id="BDP-AY-ea8"/>
                     </connections>
@@ -475,9 +476,6 @@
                                 <color key="textColor" red="0.18653312150000001" green="0.30556942479999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <variation key="widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="139" y="406" width="245" height="30"/>
-                                </variation>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0h0-2a-ECc">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -1440,6 +1438,6 @@
         <image name="biker" width="600" height="428"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bNE-dE-MNZ"/>
+        <segue reference="1S1-oW-Zmb"/>
     </inferredMetricsTieBreakers>
 </document>
