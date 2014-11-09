@@ -10,6 +10,7 @@
 #import "EntryManager.h"
 #import "DetailsViewController.h"
 #import "AppManager.h"
+#import "CustomTableCell.h"
 
 @interface RecentAddsTableViewController ()
 
@@ -21,7 +22,10 @@
 
 @end
 
-@implementation RecentAddsTableViewController
+@implementation RecentAddsTableViewController{
+    NSString* cellIdentifier;
+    NSDateFormatter *formatter;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
@@ -31,6 +35,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    cellIdentifier =  @"CustomTableCell";
+    UINib *nib = [UINib nibWithNibName:cellIdentifier bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:cellIdentifier];
+    
+    formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"dd/MM/yyyy hh:mm"];
     
     //RADI mock data
 //    self.manager = [EntryManager getManager];
@@ -64,11 +74,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     long row = indexPath.row;
+    
+    CustomTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    /* DAFAULT CELL USAGE
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"latestAddCell"];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"latestAddCell"];
     }
-    
+    */
+     
     //RADI mock data
 //    AddEntry *currentEntry = self.items[row];
 //    
@@ -79,8 +94,9 @@
     
     Item *currentEntry = self.items[row];
     
-    cell.textLabel.text = currentEntry.title;
-    cell.detailTextLabel.text = currentEntry.detail;
+    cell.titleLabel.text = currentEntry.title;
+    cell.detailLabel.text = currentEntry.detail;
+    cell.dateLabel.text = [formatter stringFromDate:currentEntry.createdAt];
     [cell.imageView setImage: [UIImage imageWithData:currentEntry.avatar.getData]];
 
     return  cell;
@@ -121,6 +137,11 @@
 */
 
 #pragma mark - Navigation
+
+// SET SEGUE WITH CUSTOM TABLE CELL
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"recentAddsToDetailSegue" sender:nil];
+}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].

@@ -34,6 +34,8 @@
 		5DDDDEA51A08E27A00F0B24F /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDDDEA41A08E27A00F0B24F /* Item.m */; };
 		840DA1C51A0D551F001A3DF9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 840DA1C41A0D551F001A3DF9 /* MapKit.framework */; };
 		840DA1C81A0D64A9001A3DF9 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840DA1C71A0D64A9001A3DF9 /* MapViewController.m */; };
+		8411FDC11A0FCF9700F6E638 /* CustomTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8411FDC01A0FCF9700F6E638 /* CustomTableCell.xib */; };
+		8411FDC71A0FD24000F6E638 /* CustomTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8411FDC61A0FD24000F6E638 /* CustomTableCell.m */; };
 		8441A11A1A07B45700DF6925 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441A1191A07B45700DF6925 /* LoginViewController.m */; };
 		8441A11D1A07B48B00DF6925 /* CatalogueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441A11C1A07B48B00DF6925 /* CatalogueViewController.m */; };
 		8441A1201A07B4B300DF6925 /* MyAddsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8441A11F1A07B4B300DF6925 /* MyAddsTableViewController.m */; };
@@ -93,6 +95,9 @@
 		840DA1C41A0D551F001A3DF9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		840DA1C61A0D64A9001A3DF9 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		840DA1C71A0D64A9001A3DF9 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		8411FDC01A0FCF9700F6E638 /* CustomTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableCell.xib; sourceTree = "<group>"; };
+		8411FDC51A0FD24000F6E638 /* CustomTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableCell.h; sourceTree = "<group>"; };
+		8411FDC61A0FD24000F6E638 /* CustomTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableCell.m; sourceTree = "<group>"; };
 		8441A1181A07B45700DF6925 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		8441A1191A07B45700DF6925 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		8441A11B1A07B48B00DF6925 /* CatalogueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatalogueViewController.h; sourceTree = "<group>"; };
@@ -188,6 +193,7 @@
 		5DB9CC3E1A011AD60042A069 /* Wild Shop */ = {
 			isa = PBXGroup;
 			children = (
+				8411FDBF1A0FCF6900F6E638 /* Views */,
 				8441A1271A07BC7400DF6925 /* Models */,
 				8441A1171A07B43B00DF6925 /* Controllers */,
 				5DB9CC431A011AD60042A069 /* AppDelegate.h */,
@@ -245,6 +251,16 @@
 				5DB9CC6C1A0123970042A069 /* Parse.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8411FDBF1A0FCF6900F6E638 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8411FDC01A0FCF9700F6E638 /* CustomTableCell.xib */,
+				8411FDC51A0FD24000F6E638 /* CustomTableCell.h */,
+				8411FDC61A0FD24000F6E638 /* CustomTableCell.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		8441A1171A07B43B00DF6925 /* Controllers */ = {
@@ -366,6 +382,7 @@
 				5DB9CC4B1A011AD60042A069 /* Main.storyboard in Resources */,
 				5DB9CC501A011AD60042A069 /* LaunchScreen.xib in Resources */,
 				5DB9CC4D1A011AD60042A069 /* Images.xcassets in Resources */,
+				8411FDC11A0FCF9700F6E638 /* CustomTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,6 +417,7 @@
 				8441A11A1A07B45700DF6925 /* LoginViewController.m in Sources */,
 				5D8852D91A0BBCE60042B004 /* AppManager.m in Sources */,
 				5D88A1961A0FA12C00AC44AF /* Reachability.m in Sources */,
+				8411FDC71A0FD24000F6E638 /* CustomTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

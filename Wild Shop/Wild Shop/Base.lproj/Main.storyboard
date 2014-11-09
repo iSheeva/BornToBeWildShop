@@ -1331,7 +1331,7 @@
                         <color key="backgroundColor" red="0.37231697219999998" green="1" blue="0.0024645324380000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.53764441799999996" green="0.47270063169999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="latestAddCell" textLabel="z7b-yV-Dzv" detailTextLabel="tpQ-fH-yT7" style="IBUITableViewCellStyleSubtitle" id="bX1-wA-fMQ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="latestAddCell" textLabel="z7b-yV-Dzv" detailTextLabel="tpQ-fH-yT7" style="IBUITableViewCellStyleSubtitle" id="bX1-wA-fMQ" customClass="CustomTableCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bX1-wA-fMQ" id="irX-oX-Ap6">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -1438,6 +1438,6 @@
         <image name="biker" width="600" height="428"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1S1-oW-Zmb"/>
+        <segue reference="bNE-dE-MNZ"/>
     </inferredMetricsTieBreakers>
 </document>
