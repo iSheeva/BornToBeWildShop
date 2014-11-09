@@ -1377,7 +1377,7 @@
         <scene sceneID="Mim-6h-qie">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3GR-hu-7bi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Catalogue" id="1mT-Ba-EWf"/>
+                    <tabBarItem key="tabBarItem" title="Catalogue" image="motorcycle-icon" id="1mT-Ba-EWf"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="cmt-oC-JAT">
@@ -1393,11 +1393,11 @@
             </objects>
             <point key="canvasLocation" x="2641.5" y="-542"/>
         </scene>
-        <!--My Adds-->
+        <!--All Adds-->
         <scene sceneID="GmX-PZ-5zk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MQQ-xW-crw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Adds" id="9hb-dB-tVM"/>
+                    <tabBarItem key="tabBarItem" title="All Adds" image="helmet-icon" id="9hb-dB-tVM"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="ht3-Qu-xAb">
@@ -1417,7 +1417,7 @@
         <scene sceneID="YyQ-mj-fEl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GZe-br-hEJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="What's New" id="nuI-gA-w03"/>
+                    <tabBarItem key="tabBarItem" title="What's New" image="speed-icon" id="nuI-gA-w03"/>
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Hbo-Ur-6As">
@@ -1436,8 +1436,11 @@
     </scenes>
     <resources>
         <image name="biker" width="600" height="428"/>
+        <image name="helmet-icon" width="35" height="35"/>
+        <image name="motorcycle-icon" width="50" height="50"/>
+        <image name="speed-icon" width="31" height="31"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bNE-dE-MNZ"/>
+        <segue reference="kWF-Kg-fky"/>
     </inferredMetricsTieBreakers>
 </document>
